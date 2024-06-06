@@ -18,9 +18,11 @@ class MusicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      theme: themeProvider.isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      home: const HomeScreen(),
     );
   }
 }
