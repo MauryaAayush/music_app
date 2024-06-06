@@ -38,15 +38,18 @@ class HomeScreen extends  StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return  Scaffold(
+      key: _scaffoldKey,
         appBar: AppBar(
           centerTitle: true,
           leading: IconButton(onPressed: () {
             setState(() {
-              Scaffold.of(context).openDrawer();
+              _scaffoldKey.currentState?.openDrawer();
             });
           }, icon:  Icon(Icons.horizontal_split_rounded,),
             color: Theme.of(context).iconTheme.color,
@@ -62,7 +65,39 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         drawer:  Drawer(
-width: 400,
+        width: 350,
+          child: ListView(
+            children:  [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+              ),
+              ListTile(
+                leading: Icon(Icons.music_note),
+                title: Text('Music'),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+              ),
+              ListTile(
+                leading: Icon(Icons.info),
+                title: Text('About'),
+              ),
+            ],
+          ),
         )
     );
   }
