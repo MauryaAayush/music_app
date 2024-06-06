@@ -40,6 +40,7 @@ class HomeScreen extends  StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return  Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -51,6 +52,14 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Theme.of(context).iconTheme.color,
           ),
           title: Text('Music'),
+          actions: [
+            Switch(
+              value: themeProvider.isDarkMode,
+              onChanged: (value) {
+                themeProvider.toggleTheme();
+              },
+            ),
+          ],
         ),
         drawer:  Drawer(
 
