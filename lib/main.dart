@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/Providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main()
 {
-  runApp(const MusicApp());
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => ThemeProvider(),)
+    ],
+        child : const MusicApp()
+    ),
+  );
 }
 
 class MusicApp extends StatelessWidget {
