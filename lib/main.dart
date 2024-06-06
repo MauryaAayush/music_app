@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         drawer:  Drawer(
-
+width: 400,
         )
     );
   }
