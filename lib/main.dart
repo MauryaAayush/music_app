@@ -66,35 +66,47 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         drawer:  Drawer(
         width: 350,
-          child: ListView(
-            children:  [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text(
-                  'Menu',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                // backgroundColor: Colors.transparent,
+                pinned: true,
+                automaticallyImplyLeading: false,
+                expandedHeight: 200.0,
+                flexibleSpace: FlexibleSpaceBar(
+                  title: const Text('MusicHole'),
+                  background: Image.asset(
+                    'assets/header.jpg',
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
-              ),
-              ListTile(
-                leading: Icon(Icons.music_note),
-                title: Text('Music'),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-              ),
-              ListTile(
-                leading: Icon(Icons.info),
-                title: Text('About'),
+
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    ListTile(
+                      leading: const Icon(Icons.home),
+                      title: const Text('Home'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.music_note),
+                      title: const Text('Music'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.settings),
+                      title: const Text('Settings'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.info),
+                      title: const Text('About'),
+                      onTap: () {},
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
