@@ -10,7 +10,7 @@ class DrawerScreen extends StatelessWidget {
     return Drawer(
       width: 350,
       child: CustomScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: false,
         slivers: [
           SliverAppBar(
@@ -23,16 +23,16 @@ class DrawerScreen extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: RichText(
-                text: TextSpan(
+                text: const TextSpan(
                   text: 'Music Hole\n',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.w600,
                   ),
                   children: <TextSpan>[
                     TextSpan(
                       text: 'version 2.0',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 7.0,
                       ),
                     ),
