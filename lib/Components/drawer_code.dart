@@ -71,11 +71,11 @@ class DrawerScreen extends StatelessWidget {
             delegate: SliverChildListDelegate(
               [
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.home,
                     color: Colors.teal,
                   ),
-                  title: Text(
+                  title: const Text(
                     'Home',
                     style: TextStyle(
                       color: Colors.teal,
