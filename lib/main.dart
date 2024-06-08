@@ -67,9 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: CustomScrollView(
             slivers: [
             SliverAppBar(
-            pinned: true,
+
             automaticallyImplyLeading: false,
-            expandedHeight: 200.0,
+              expandedHeight: MediaQuery.of(context).size.height * 0.2,
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: RichText(
@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   children: <TextSpan>[
                     TextSpan(
-                      text: appVersion == null ? '' : '\nv$appVersion',
+                      text: 'version 2.0',
                       style: const TextStyle(
                         fontSize: 7.0,
                       ),
