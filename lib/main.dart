@@ -72,14 +72,47 @@ class _HomeScreenState extends State<HomeScreen> {
             expandedHeight: 200.0,
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
-              title: const Text('MusicHole',style: TextStyle(
-                color: Colors.white,
-                fontSize: 35,
-                fontWeight: FontWeight.w600
-              ),),
-              background: Image.asset(
-                themeProvider.isDarkMode ? 'assets/header-dark.jpg' : 'assets/header.jpg',
-                fit: BoxFit.fitHeight,
+              title: RichText(
+                text: TextSpan(
+                  text:'Music Hole',
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: appVersion == null ? '' : '\nv$appVersion',
+                      style: const TextStyle(
+                        fontSize: 7.0,
+                      ),
+                    ),
+                  ],
+                ),
+                textAlign: TextAlign.end,
+              ),
+              background: ShaderMask(
+                shaderCallback: (rect) {
+                  return LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.black.withOpacity(0.8),
+                      Colors.black.withOpacity(0.1),
+                    ],
+                  ).createShader(
+                    Rect.fromLTRB(0, 0, rect.width, rect.height),
+                  );
+                },
+                blendMode: BlendMode.dstIn,
+                child: Image(
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                  image: AssetImage(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? 'assets/header-dark.jpg'
+                        : 'assets/header.jpg',
+                  ),
+                ),
               ),
             ),
             ),
@@ -113,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: const Icon(Icons.info),
+                      leading: const Icon(Icons.info_outline),
                       title: const Text('About'),
                       onTap: () {},
                     ),
