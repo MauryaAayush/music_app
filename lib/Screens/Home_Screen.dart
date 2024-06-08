@@ -55,12 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ],
           // ),
           child: CustomScrollView(
-shrinkWrap: true,
+          shrinkWrap: false,
             slivers: [
               SliverAppBar(
                 backgroundColor: Colors.transparent,
                 automaticallyImplyLeading: false,
-                stretch: true,
+                stretch: false,
                 elevation: 0,
                 expandedHeight: MediaQuery.of(context).size.height * 0.2,
                 flexibleSpace: FlexibleSpaceBar(
