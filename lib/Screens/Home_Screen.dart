@@ -150,17 +150,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SliverFillRemaining(
+              const SliverFillRemaining(
                 hasScrollBody: false,
                 child: Column(
                   children: <Widget>[
-                    const Spacer(),
+                    Spacer(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(5, 30, 5, 20),
+                      padding: EdgeInsets.fromLTRB(5, 30, 5, 20),
                       child: Center(
                         child: Text( 'Made with ❤️ by Aayush Maurya',
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12),
                         ),
                       ),
                     ),
