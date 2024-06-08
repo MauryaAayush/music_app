@@ -96,13 +96,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: const Icon(Icons.folder),
-                      title: const Text('My Music'),
+                      leading: const Icon(Icons.download_done_sharp),
+                      title: const Text('Download'),
                       onTap: () {},
                     ),
                     ListTile(
                       leading: const Icon(Icons.folder),
-                      title: const Text('My Music'),
+                      title: const Text('Playlists'),
                       onTap: () {},
                     ),
                     ListTile(
