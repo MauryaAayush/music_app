@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../Providers/theme_provider.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({
     super.key,
   });
 
+
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Drawer(
+      backgroundColor: themeProvider.isDarkMode ? Colors.black : Colors.white,
       width: 350,
       child: CustomScrollView(
         physics: const NeverScrollableScrollPhysics(),
