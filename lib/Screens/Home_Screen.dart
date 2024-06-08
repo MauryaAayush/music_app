@@ -43,6 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         drawer: Drawer(
           width: 350,
+          // child: Column(
+          //   children: [
+          //     Container(
+          //       height: 300,
+          //       width: 350,
+          //       decoration: BoxDecoration(
+          //     image: DecorationImage(image: AssetImage('assets/header.jpg'),fit: BoxFit.cover)
+          //       ),
+          //     )
+          //   ],
+          // ),
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -69,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    textAlign: TextAlign.end,
+                    textAlign: TextAlign.center,
                   ),
                   background: ShaderMask(
                     shaderCallback: (rect) {
@@ -101,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 delegate: SliverChildListDelegate(
                   [
                     ListTile(
-                      leading:  Icon(Icons.home,color: Theme.of(context).colorScheme.secondary,),
+                      leading:  Icon(Icons.home,color: Colors.teal,),
                       title:  Text('Home',style: TextStyle(
                         color: Colors.teal,
                       ),),
