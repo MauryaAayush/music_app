@@ -125,7 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   [
                     ListTile(
                       leading: const Icon(Icons.home),
-                      title: const Text('Home'),
+                      title: const Text('Home',style: TextStyle(
+                        color: Colors.teal,
+                      ),),
                       onTap: () {},
                     ),
                     ListTile(
