@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: const Icon(Icons.folder),
+                      leading: const Icon(Icons.playlist_play),
                       title: const Text('Playlists'),
                       onTap: () {},
                     ),
