@@ -55,9 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
           //   ],
           // ),
           child: CustomScrollView(
+            physics: NeverScrollableScrollPhysics(),
           shrinkWrap: false,
             slivers: [
               SliverAppBar(
+                centerTitle: true,
                 backgroundColor: Colors.transparent,
                 automaticallyImplyLeading: false,
                 stretch: false,
@@ -67,10 +69,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   centerTitle: true,
                   title: RichText(
                     text: TextSpan(
-                      text: 'Music Hole',
+                      text: 'Music Hole\n',
                       style: const TextStyle(
                         fontSize: 30.0,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ),
                       children: <TextSpan>[
                         TextSpan(
@@ -81,8 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.end,
                   ),
+                  titlePadding: const EdgeInsets.only(bottom: 40.0),
                   background: ShaderMask(
                     shaderCallback: (rect) {
                       return LinearGradient(
