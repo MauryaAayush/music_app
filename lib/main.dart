@@ -124,8 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 delegate: SliverChildListDelegate(
                   [
                     ListTile(
-                      leading: const Icon(Icons.home),
-                      title: const Text('Home',style: TextStyle(
+                      leading:  Icon(Icons.home,color: Theme.of(context).colorScheme.secondary,),
+                      title:  Text('Home',style: TextStyle(
                         color: Colors.teal,
                       ),),
                       onTap: () {},
