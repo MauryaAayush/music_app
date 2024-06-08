@@ -56,11 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           title: Text('Music'),
           actions: [
-            Switch(
-              value: themeProvider.isDarkMode,
-              onChanged: (value) {
-                themeProvider.toggleTheme();
-              },
+            IconButton(
+              icon: Icon(themeProvider.isDarkMode ? Icons.wb_sunny : Icons.nights_stay),
+              onPressed: () => themeProvider.toggleTheme(),
             ),
           ],
         ),
@@ -68,19 +66,23 @@ class _HomeScreenState extends State<HomeScreen> {
         width: 350,
           child: CustomScrollView(
             slivers: [
-              SliverAppBar(
-                // backgroundColor: Colors.transparent,
-                pinned: true,
-                automaticallyImplyLeading: false,
-                expandedHeight: 200.0,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: const Text('MusicHole'),
-                  background: Image.asset(
-                    'assets/header.jpg',
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
+            SliverAppBar(
+            pinned: true,
+            automaticallyImplyLeading: false,
+            expandedHeight: 200.0,
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              title: const Text('MusicHole',style: TextStyle(
+                color: Colors.white,
+                fontSize: 35,
+                fontWeight: FontWeight.w600
+              ),),
+              background: Image.asset(
+                themeProvider.isDarkMode ? 'assets/header-dark.jpg' : 'assets/header.jpg',
+                fit: BoxFit.fitHeight,
               ),
+            ),
+            ),
 
               SliverList(
                 delegate: SliverChildListDelegate(
