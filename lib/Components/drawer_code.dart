@@ -31,7 +31,7 @@ class DrawerScreen extends StatelessWidget {
               centerTitle: true,
               title: RichText(
                 text: const TextSpan(
-                  text: 'Music Hole\n',
+                  text: 'MusicHole\n',
                   style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.w600,
