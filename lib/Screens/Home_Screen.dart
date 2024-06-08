@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             items: <BottomBarItem>[
               BottomBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.home,size: 27,),
                 title: Text('Home',style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 17
