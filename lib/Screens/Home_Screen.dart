@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: Consumer<PageProvider>(
         builder: (context, pageProvider, child) {
           return BottomBar(
+            backgroundColor: themeProvider.isDarkMode ? Colors.black : Colors.white,
             selectedIndex: pageProvider.currentPage,
             onTap: (int index) {
               _pageController.jumpToPage(index);
@@ -69,23 +70,26 @@ class _HomeScreenState extends State<HomeScreen> {
             items: <BottomBarItem>[
               BottomBarItem(
                 icon: Icon(Icons.home),
-                title: Text('Home'),
-                activeColor: Colors.blue,
+                title: Text('Home',style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17
+                ),),
+                activeColor: Colors.tealAccent.shade700,
               ),
               BottomBarItem(
-                icon: Icon(Icons.favorite),
+                icon: Icon(Icons.trending_up),
                 title: Text('Favorites'),
-                activeColor: Colors.red,
+                activeColor: Colors.tealAccent.shade700,
               ),
               BottomBarItem(
                 icon: Icon(Icons.person),
                 title: Text('Account'),
-                activeColor: Colors.greenAccent.shade700,
+                activeColor: Colors.tealAccent.shade700,
               ),
               BottomBarItem(
                 icon: Icon(Icons.settings),
                 title: Text('Settings'),
-                activeColor: Colors.orange,
+                activeColor: Colors.tealAccent.shade700,
               ),
             ],
           );
