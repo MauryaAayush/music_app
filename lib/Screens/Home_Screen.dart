@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             backgroundColor: Colors.transparent,
             pinned: true,
             floating: true,
-            snap: true,
+            snap: false,
             expandedHeight: 280,
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   width: MediaQuery.of(context).size.width - 100, // Adjust the width as needed
                   child: TextField(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(5),
+                      contentPadding: EdgeInsets.all(10),
                       hintText: 'Songs, albums or artists',
                       prefixIcon: Icon(Icons.search,size: 20,),
                       border: OutlineInputBorder(
