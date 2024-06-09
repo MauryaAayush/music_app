@@ -52,201 +52,114 @@ class _HomeScreenState extends State<HomeScreen>
       drawer: const DrawerScreen(),
       body: CustomScrollView(
         slivers: [
-          // SliverAppBar(
-          //   backgroundColor: Colors.transparent,
-          //   pinned: true,
-          //   floating: true,
-          //   snap: false,
-          //   expandedHeight: 280,
-          //   flexibleSpace: FlexibleSpaceBar(
-          //     centerTitle: true,
-          //     title: Padding(
-          //       padding: const EdgeInsets.only(left: 10, right: 10),
-          //       child: GestureDetector(
-          //         onTap: () {
-          //           setState(() {
-          //             _isSearchFocused = !_isSearchFocused;
-          //           });
-          //         },
-          //         child: AnimatedContainer(
-          //           duration: Duration(milliseconds: 300),
-          //           height: 60, // Adjust the height as needed
-          //           width: _isSearchFocused
-          //               ? MediaQuery.of(context).size.width - 40
-          //               : MediaQuery.of(context).size.width - 100,
-          //           decoration: BoxDecoration(
-          //             // color: Colors.white, // Fill color for the container
-          //             borderRadius: BorderRadius.circular(8.0),
-          //             border: Border.all(color: Colors.grey), // Border color
-          //           ),
-          //           padding: EdgeInsets.symmetric(horizontal: 10),
-          //           child: Row(
-          //             children: [
-          //               Icon(Icons.search, size: 20),
-          //               SizedBox(width: 10),
-          //               Expanded(
-          //                 child: TextField(
-          //                   controller: _searchController,
-          //                   decoration: InputDecoration(
-          //                     border: InputBorder.none,
-          //                     hintText: 'Songs, albums or artists',
-          //                   ),
-          //                   onTap: () {
-          //                     setState(() {
-          //                       _isSearchFocused = true;
-          //                     });
-          //                   },
-          //                   onSubmitted: (value) {
-          //                     setState(() {
-          //                       _isSearchFocused = false;
-          //                     });
-          //                   },
-          //                 ),
-          //               ),
-          //               if (_isSearchFocused)
-          //                 IconButton(
-          //                   icon: Icon(Icons.close),
-          //                   onPressed: () {
-          //                     _searchController.clear();
-          //                     setState(() {
-          //                       _isSearchFocused = false;
-          //                     });
-          //                   },
-          //                 ),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //     background: Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         Padding(
-          //           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          //           child: Text(
-          //             'Hi There,',
-          //             style: TextStyle(
-          //               fontSize: 30,
-          //               letterSpacing: 1.5,
-          //               fontWeight: FontWeight.bold,
-          //               color: Colors.teal,
-          //             ),
-          //           ),
-          //         ),
-          //         Padding(
-          //           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          //           child: Text(
-          //             'Aayush',
-          //             style: TextStyle(
-          //               fontSize: 22,
-          //               letterSpacing: 1,
-          //               fontWeight: FontWeight.bold,
-          //             ),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          //   leading: IconButton(
-          //     onPressed: () {
-          //       _scaffoldKey.currentState?.openDrawer();
-          //     },
-          //     icon: Icon(Icons.horizontal_split),
-          //   ),
-          //   actions: [
-          //     IconButton(
-          //       icon: Icon(themeProvider.isDarkMode  ? Icons.wb_sunny : Icons.nights_stay),
-          //       onPressed: () => themeProvider.toggleTheme(),
-          //     ),
-          //   ],
-          // ),
-
           SliverAppBar(
-            automaticallyImplyLeading: false,
-            pinned: true,
             backgroundColor: Colors.transparent,
-            elevation: 0,
-            stretch: true,
-            toolbarHeight: 65,
-            title: Align(
-              alignment: Alignment.centerRight,
-              child: AnimatedBuilder(
-                animation: _scrollController,
-                builder: (context, child) {
-                  return GestureDetector(
-                    child: AnimatedContainer(
-                      width: (!_scrollController.hasClients ||
-                              _scrollController
-                                      // ignore: invalid_use_of_protected_member
-                                      .positions
-                                      .length >
-                                  1)
-                          ? MediaQuery.of(context).size.width
-                          : max(
-                              MediaQuery.of(context).size.width -
-                                  _scrollController.offset.roundToDouble(),
-                              MediaQuery.of(context).size.width - 75,
+            pinned: true,
+            floating: true,
+            snap: false,
+            expandedHeight: 280,
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              title: Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _isSearchFocused = !_isSearchFocused;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    height: 60, // Adjust the height as needed
+                    width: _isSearchFocused
+                        ? MediaQuery.of(context).size.width - 40
+                        : MediaQuery.of(context).size.width - 100,
+                    decoration: BoxDecoration(
+                      // color: Colors.white, // Fill color for the container
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all(color: Colors.grey), // Border color
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Icon(Icons.search, size: 20),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            controller: _searchController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Songs, albums or artists',
                             ),
-                      height: 52.0,
-                      duration: const Duration(
-                        milliseconds: 150,
-                      ),
-                      padding: const EdgeInsets.all(2.0),
-                      // margin: EdgeInsets.zero,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          10.0,
+                            onTap: () {
+                              setState(() {
+                                _isSearchFocused = true;
+                              });
+                            },
+                            onSubmitted: (value) {
+                              setState(() {
+                                _isSearchFocused = false;
+                              });
+                            },
+                          ),
                         ),
-                        color: Theme.of(context).cardColor,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 5.0,
-                            offset: Offset(1.5, 1.5),
-                            // shadow direction: bottom right
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          const SizedBox(
-                            width: 10.0,
+                        if (_isSearchFocused)
+                          IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              _searchController.clear();
+                              setState(() {
+                                _isSearchFocused = false;
+                              });
+                            },
                           ),
-                          Icon(
-                            Icons.search,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          Text(
-                           "Hi there, Aayush"
-                            ,
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              // color: Theme.of(context).textTheme.caption!.color,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              background: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      'Hi There,',
+                      style: TextStyle(
+                        fontSize: 30,
+                        letterSpacing: 1.5,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.teal,
                       ),
                     ),
-                    // onTap: () => Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) =>
-                    //     const SearchPage(
-                    //       query: '',
-                    //       fromHome: true,
-                    //       autofocus: true,
-                    //     ),
-                    //   ),
-                    // ),
-                  );
-                },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      'Aayush',
+                      style: TextStyle(
+                        fontSize: 22,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
+            leading: IconButton(
+              onPressed: () {
+                _scaffoldKey.currentState?.openDrawer();
+              },
+              icon: Icon(Icons.horizontal_split),
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(themeProvider.isDarkMode  ? Icons.wb_sunny : Icons.nights_stay),
+                onPressed: () => themeProvider.toggleTheme(),
+              ),
+            ],
           ),
 
           SliverFillRemaining(
@@ -304,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen>
                       // Add Last Session Widgets here
                       ListTile(
                         leading:
-                            Image.network('https://via.placeholder.com/150'),
+                        Image.network('https://via.placeholder.com/150'),
                         // Replace with song image
                         title: Text('Naino Ne Baandhi'),
                         subtitle: Text('Best Of Akshay Kumar'),
@@ -312,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                       ListTile(
                         leading:
-                            Image.network('https://via.placeholder.com/150'),
+                        Image.network('https://via.placeholder.com/150'),
                         // Replace with song image
                         title: Text('Jogi - Lyrical |Shaadi M...'),
                         subtitle: Text('Shafqat Amanat Ali'),
@@ -320,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                       ListTile(
                         leading:
-                            Image.network('https://via.placeholder.com/150'),
+                        Image.network('https://via.placeholder.com/150'),
                         // Replace with song image
                         title: Text('World War (Lofi) (Lo...'),
                         subtitle: Text('Saaaj Tomar, chaahat,...'),
@@ -388,32 +301,3 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 }
-
-// Padding(
-// padding: const EdgeInsets.only(left: 10, right: 10),
-// child: SizedBox(
-// height: 50, // Adjust the height as needed
-// width: MediaQuery.of(context).size.width - 80, // Adjust the width as needed
-// child: Container(
-// decoration: BoxDecoration(
-// // Fill color for the container
-// borderRadius: BorderRadius.circular(8.0),
-// border: Border.all(color: Colors.grey), // Border color
-// ),
-// padding: EdgeInsets.all(10),
-// child: Row(
-// children: [
-// Icon(Icons.search, size: 20),
-// SizedBox(width: 10),
-// Text(
-// 'Songs, albums or artists',
-// style: TextStyle(
-// fontSize: 10,
-// color: Colors.grey, // Hint text color
-// ),
-// ),
-// ],
-// ),
-// ),
-// ),
-// ),
