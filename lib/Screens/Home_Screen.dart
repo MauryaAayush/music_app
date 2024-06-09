@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     filled: true,
-                    fillColor: Colors.white,
+                    // fillColor: Colors.white,
                   ),
                 ),
               ),
@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   child: Container(
                     height: 100,
-                    color: Colors.grey[300], // Replace with your playlist widget
+                    color: Colors.blue, // Replace with your playlist widget
                     child: Center(child: Text('Favorite Songs')),
                   ),
                 ),
