@@ -44,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final pageProvider = Provider.of<PageProvider>(context);
 
     return Scaffold(
+      backgroundColor: themeProvider.isDarkMode ? Colors.black : Colors.white,
       key: _scaffoldKey,
       drawer: const DrawerScreen(),
       body: CustomScrollView(
