@@ -54,11 +54,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             pinned: true,
             floating: true,
             snap: true,
-            expandedHeight: 200,
+            expandedHeight: 230,
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Padding(
-                padding: const EdgeInsets.only(top: 16.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: TextField(
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(10),
@@ -81,21 +81,22 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     child: Text(
                       'Hi There,',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 30,
+                        letterSpacing: 1.5,
                         fontWeight: FontWeight.bold,
                         color: Colors.teal,
                       ),
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       'Aayush',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 22,
+                        letterSpacing: 1,
                         fontWeight: FontWeight.bold,
-                        color: Colors.teal,
+
                       ),
                     ),
                   ),
