@@ -17,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final PageController _pageController = PageController();
   late TabController _tabController;
-  bool _isSearchBarVisible = true;
 
   @override
   void initState() {
@@ -158,6 +157,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   trailing: Icon(Icons.play_arrow),
                 ),
               ],
+
             ),
           ),
 
