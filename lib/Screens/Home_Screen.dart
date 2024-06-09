@@ -17,6 +17,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final PageController _pageController = PageController();
   late TabController _tabController;
+  final TextEditingController _searchController = TextEditingController();
+  bool _isSearchFocused = false;
 
   @override
   void initState() {
@@ -58,20 +60,59 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
-                child: SizedBox(
-                  height: 60, // Adjust the height as needed
-                  width: MediaQuery.of(context).size.width - 100, // Adjust the width as needed
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(10),
-                      hintText: 'Songs, albums or artists',
-                      prefixIcon: Icon(Icons.search,size: 20,),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      filled: true,
-                      // fillColor: Colors.white,
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _isSearchFocused = !_isSearchFocused;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    height: 60, // Adjust the height as needed
+                    width: _isSearchFocused
+                        ? MediaQuery.of(context).size.width - 40
+                        : MediaQuery.of(context).size.width - 100,
+                    decoration: BoxDecoration(
+                      // color: Colors.white, // Fill color for the container
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all(color: Colors.grey), // Border color
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Icon(Icons.search, size: 20),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            controller: _searchController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Songs, albums or artists',
+                            ),
+                            onTap: () {
+                              setState(() {
+                                _isSearchFocused = true;
+                              });
+                            },
+                            onSubmitted: (value) {
+                              setState(() {
+                                _isSearchFocused = false;
+                              });
+                            },
+                          ),
+                        ),
+                        if (_isSearchFocused)
+                          IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              _searchController.clear();
+                              setState(() {
+                                _isSearchFocused = false;
+                              });
+                            },
+                          ),
+                      ],
                     ),
                   ),
                 ),
@@ -108,15 +149,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             ),
             leading: IconButton(
               onPressed: () {
-                setState(() {
-                  _scaffoldKey.currentState?.openDrawer();
-                });
+                _scaffoldKey.currentState?.openDrawer();
               },
               icon: Icon(Icons.horizontal_split),
             ),
             actions: [
               IconButton(
-                icon: Icon(themeProvider.isDarkMode ? Icons.wb_sunny : Icons.nights_stay),
+                icon: Icon(themeProvider.isDarkMode  ? Icons.wb_sunny : Icons.nights_stay),
                 onPressed: () => themeProvider.toggleTheme(),
               ),
             ],
@@ -249,3 +288,33 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     );
   }
 }
+
+
+// Padding(
+// padding: const EdgeInsets.only(left: 10, right: 10),
+// child: SizedBox(
+// height: 50, // Adjust the height as needed
+// width: MediaQuery.of(context).size.width - 80, // Adjust the width as needed
+// child: Container(
+// decoration: BoxDecoration(
+// // Fill color for the container
+// borderRadius: BorderRadius.circular(8.0),
+// border: Border.all(color: Colors.grey), // Border color
+// ),
+// padding: EdgeInsets.all(10),
+// child: Row(
+// children: [
+// Icon(Icons.search, size: 20),
+// SizedBox(width: 10),
+// Text(
+// 'Songs, albums or artists',
+// style: TextStyle(
+// fontSize: 10,
+// color: Colors.grey, // Hint text color
+// ),
+// ),
+// ],
+// ),
+// ),
+// ),
+// ),
