@@ -72,18 +72,30 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 ),
               ),
               background: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
-                      'Hi There, Aayush',
+                      'Hi There,',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.teal,
                       ),
-                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      'Aayush',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.teal,
+                      ),
                     ),
                   ),
                 ],
@@ -92,7 +104,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             ),
             leading: IconButton(
               onPressed: () {
-                Scaffold.of(context).openDrawer();
+                setState(() {
+                  _scaffoldKey.currentState?.openDrawer();
+                });
               },
               icon: Icon(Icons.horizontal_split),
             ),
