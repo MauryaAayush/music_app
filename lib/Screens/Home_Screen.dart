@@ -184,13 +184,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 Column(children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                    child: Text(
-                      'Your Playlists',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.teal,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Your Playlists',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.teal,
+                          ),
+                        ),
+                        Icon(Icons.arrow_right_alt_rounded)
+                      ],
                     ),
                   ),
                   // Add Playlist Widget here
