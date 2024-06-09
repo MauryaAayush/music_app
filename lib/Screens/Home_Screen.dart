@@ -90,6 +90,8 @@ class _HomeScreenState extends State<HomeScreen>
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Songs, albums or artists',
+                              hintStyle: TextStyle(
+                              )
                             ),
                             onTap: () {
                               setState(() {
@@ -118,7 +120,8 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                 ),
               ),
-              background: Column(
+              background:
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -162,6 +165,7 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
 
+          // Main coding of
           SliverFillRemaining(
             child: PageView(
               controller: _pageController,
@@ -251,6 +255,8 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
+
+      // Bottom Navigation bar
       bottomNavigationBar: BottomBar(
         backgroundColor: themeProvider.isDarkMode ? Colors.black : Colors.white,
         selectedIndex: pageProvider.currentPage,
