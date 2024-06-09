@@ -54,21 +54,25 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             pinned: true,
             floating: true,
             snap: true,
-            expandedHeight: 230,
+            expandedHeight: 280,
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(10),
-                    hintText: 'Songs, albums or artists',
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+                padding: const EdgeInsets.only(left: 10,right: 10),
+                child: SizedBox(
+                  height: 60, // Adjust the height as needed
+                  width: MediaQuery.of(context).size.width - 100, // Adjust the width as needed
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(5),
+                      hintText: 'Songs, albums or artists',
+                      prefixIcon: Icon(Icons.search,size: 20,),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      // fillColor: Colors.white,
                     ),
-                    filled: true,
-                    // fillColor: Colors.white,
                   ),
                 ),
               ),
@@ -96,12 +100,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         fontSize: 22,
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
-
                       ),
                     ),
                   ),
                 ],
-
               ),
             ),
             leading: IconButton(
@@ -112,7 +114,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               },
               icon: Icon(Icons.horizontal_split),
             ),
-
             actions: [
               IconButton(
                 icon: Icon(themeProvider.isDarkMode ? Icons.wb_sunny : Icons.nights_stay),
@@ -120,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ],
           ),
+
 
 
           SliverFillRemaining(
@@ -130,64 +132,67 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 _tabController.animateTo(index);
               },
               children: [
-                Column(children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Your Playlists',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.teal,
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Your Playlists',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.teal,
+                            ),
                           ),
-                        ),
-                        Icon(Icons.arrow_right_alt_rounded)
-                      ],
-                    ),
-                  ),
-                  // Add Playlist Widget here
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                    child: Container(
-                      height: 100,
-                      color: Colors.blue, // Replace with your playlist widget
-                      child: Center(child: Text('Favorite Songs')),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                    child: Text(
-                      'Last Session',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.teal,
+                          Icon(Icons.arrow_right_alt_rounded)
+                        ],
                       ),
                     ),
-                  ),
-                  // Add Last Session Widgets here
-                  ListTile(
-                    leading: Image.network('https://via.placeholder.com/150'), // Replace with song image
-                    title: Text('Naino Ne Baandhi'),
-                    subtitle: Text('Best Of Akshay Kumar'),
-                    trailing: Icon(Icons.more_vert),
-                  ),
-                  ListTile(
-                    leading: Image.network('https://via.placeholder.com/150'), // Replace with song image
-                    title: Text('Jogi - Lyrical |Shaadi M...'),
-                    subtitle: Text('Shafqat Amanat Ali'),
-                    trailing: Icon(Icons.more_vert),
-                  ),
-                  ListTile(
-                    leading: Image.network('https://via.placeholder.com/150'), // Replace with song image
-                    title: Text('World War (Lofi) (Lo...'),
-                    subtitle: Text('Saaaj Tomar, chaahat,...'),
-                    trailing: Icon(Icons.play_arrow),
-                  ),
-                ],),
+                    // Add Playlist Widget here
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Container(
+                        height: 100,
+                        color: Colors.blue, // Replace with your playlist widget
+                        child: Center(child: Text('Favorite Songs')),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Text(
+                        'Last Session',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.teal,
+                        ),
+                      ),
+                    ),
+                    // Add Last Session Widgets here
+                    ListTile(
+                      leading: Image.network('https://via.placeholder.com/150'), // Replace with song image
+                      title: Text('Naino Ne Baandhi'),
+                      subtitle: Text('Best Of Akshay Kumar'),
+                      trailing: Icon(Icons.more_vert),
+                    ),
+                    ListTile(
+                      leading: Image.network('https://via.placeholder.com/150'), // Replace with song image
+                      title: Text('Jogi - Lyrical |Shaadi M...'),
+                      subtitle: Text('Shafqat Amanat Ali'),
+                      trailing: Icon(Icons.more_vert),
+                    ),
+                    ListTile(
+                      leading: Image.network('https://via.placeholder.com/150'), // Replace with song image
+                      title: Text('World War (Lofi) (Lo...'),
+                      subtitle: Text('Saaaj Tomar, chaahat,...'),
+                      trailing: Icon(Icons.play_arrow),
+                    ),
+                  ],),
+                ),
                 // Container(color: Colors.blue),
                 Container(color: Colors.red),
                 Container(color: Colors.greenAccent.shade700),
