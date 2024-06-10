@@ -21,8 +21,8 @@ class _HomeScreenState extends State<HomeScreen>
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final PageController _pageController = PageController();
   late TabController _tabController;
-  final TextEditingController _searchController = TextEditingController();
-  bool _isSearchFocused = false;
+  // final TextEditingController _searchController = TextEditingController();
+  // bool _isSearchFocused = false;
 
   @override
   void initState() {
