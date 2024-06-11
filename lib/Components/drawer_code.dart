@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../Providers/theme_provider.dart';
@@ -30,7 +31,7 @@ class DrawerScreen extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: RichText(
-                text: const TextSpan(
+                text:  TextSpan(
                   text: 'MusicHole\n',
                   style: TextStyle(
                     fontSize: 30.0,
@@ -39,7 +40,7 @@ class DrawerScreen extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                       text: 'version 2.0',
-                      style: TextStyle(
+                      style: GoogleFonts.roboto(
                         fontSize: 7.0,
                       ),
                     ),
@@ -118,18 +119,18 @@ class DrawerScreen extends StatelessWidget {
               ],
             ),
           ),
-          const SliverFillRemaining(
+           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
               children: <Widget>[
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: EdgeInsets.fromLTRB(5, 30, 5, 20),
                   child: Center(
                     child: Text(
                       'Made with ❤️ by Aayush Maurya',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 12),
+                      style: GoogleFonts.roboto(fontSize: 12),
                     ),
                   ),
                 ),
