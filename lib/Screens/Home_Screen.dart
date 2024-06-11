@@ -269,7 +269,9 @@ class BottomNavigationBar extends StatelessWidget {
           icon: Icon(
             Icons.home,
           ),
-          title: Text('Home',),
+          title: Text(
+            'Home',
+          ),
           activeColor: Colors.tealAccent,
         ),
         BottomBarItem(
