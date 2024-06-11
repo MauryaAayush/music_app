@@ -274,7 +274,7 @@ class BottomNavigationBar extends StatelessWidget {
             'Home',
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
           ),
-          activeColor: Colors.tealAccent.shade700,
+          activeColor: Colors.tealAccent,
         ),
         BottomBarItem(
           icon: Icon(Icons.trending_up),
@@ -282,22 +282,21 @@ class BottomNavigationBar extends StatelessWidget {
             'Top Charts',
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
-          activeColor: Colors.tealAccent.shade700,
+          activeColor: Colors.tealAccent,
         ),
         BottomBarItem(
           icon: Icon(MdiIcons.youtube),
           title: Text(
             'Youtube',
           ),
-          activeColor: Colors.tealAccent.shade700,
+          activeColor: Colors.tealAccent,
         ),
         BottomBarItem(
           icon: Icon(Icons.library_music_rounded),
           title: Text(
             'Settings',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
-          activeColor: Colors.tealAccent.shade700,
+          activeColor: Colors.tealAccent,
         ),
       ],
     );
