@@ -11,7 +11,7 @@ class SliverForGreading extends StatelessWidget {
       toolbarHeight: 65,
       backgroundColor: Colors.transparent,
       elevation: 0,
-      expandedHeight: 165,
+      expandedHeight: 135,
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
           return FlexibleSpaceBar(
@@ -20,7 +20,7 @@ class SliverForGreading extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 40,
+                  height: 50,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0),
