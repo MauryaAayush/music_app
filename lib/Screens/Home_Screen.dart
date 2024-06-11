@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen>
                               ];
                             },
                             body: SingleChildScrollView(
-                              physics: BouncingScrollPhysics(),
+                              physics: const BouncingScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               child: Column(
                                 children: [
@@ -161,27 +162,94 @@ class _HomeScreenState extends State<HomeScreen>
                                     ),
                                   ),
                                   // Add Last Session Widgets here
-                                  ListTile(
-                                    leading: Image.network('https://via.placeholder.com/150'),
-                                    // Replace with song image
-                                    title: Text('Naino Ne Baandhi'),
-                                    subtitle: Text('Best Of Akshay Kumar'),
-                                    trailing: Icon(Icons.more_vert),
-                                  ),
-                                  ListTile(
-                                    leading: Image.network('https://via.placeholder.com/150'),
-                                    // Replace with song image
-                                    title: Text('Jogi - Lyrical |Shaadi M...'),
-                                    subtitle: Text('Shafqat Amanat Ali'),
-                                    trailing: Icon(Icons.more_vert),
-                                  ),
-                                  ListTile(
-                                    leading: Image.network('https://via.placeholder.com/150'),
-                                    // Replace with song image
-                                    title: Text('World War (Lofi) (Lo...'),
-                                    subtitle: Text('Saaaj Tomar, chaahat,...'),
-                                    trailing: Icon(Icons.more_vert),
-                                  ),
+
+                                  CarouselSlider(items: [
+                                    Column(
+                                      children: [
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('Naino Ne Baandhi'),
+                                          subtitle: Text('Best Of Akshay Kumar'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('Jogi - Lyrical |Shaadi M...'),
+                                          subtitle: Text('Shafqat Amanat Ali'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('World War (Lofi) (Lo...'),
+                                          subtitle: Text('Saaaj Tomar, chaahat,...'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('Naino Ne Baandhi'),
+                                          subtitle: Text('Best Of Akshay Kumar'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('Jogi - Lyrical |Shaadi M...'),
+                                          subtitle: Text('Shafqat Amanat Ali'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('World War (Lofi) (Lo...'),
+                                          subtitle: Text('Saaaj Tomar, chaahat,...'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('Naino Ne Baandhi'),
+                                          subtitle: Text('Best Of Akshay Kumar'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('Jogi - Lyrical |Shaadi M...'),
+                                          subtitle: Text('Shafqat Amanat Ali'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                        ListTile(
+                                          leading: Image.network('https://via.placeholder.com/150'),
+                                          // Replace with song image
+                                          title: Text('World War (Lofi) (Lo...'),
+                                          subtitle: Text('Saaaj Tomar, chaahat,...'),
+                                          trailing: Icon(Icons.more_vert),
+                                        ),
+                                      ],
+                                    ),
+                                  ], options: CarouselOptions(
+                                    height: 410,
+                                    padEnds: false,
+                                    viewportFraction:
+                                    0.85, // Adjust this value for visibility from the right
+                                    enableInfiniteScroll: false,
+                                    autoPlay: false,
+                                  )),
+
+
+
                                 ],
                               ),
                             ),
