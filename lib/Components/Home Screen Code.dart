@@ -40,6 +40,8 @@ class HomeScreenCode extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
+
+                // Heading of type of songs
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   child: Row(
@@ -98,7 +100,7 @@ class HomeScreenCode extends StatelessWidget {
                   Carousal_Column(),
 
                 ], options: CarouselOptions(
-                  height: 410,
+                  height: 310,
                   padEnds: false,
                   viewportFraction:
                   0.85, // Adjust this value for visibility from the right
@@ -106,6 +108,23 @@ class HomeScreenCode extends StatelessWidget {
                   autoPlay: false,
                 )),
 
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Your Playlists',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
 
 
               ],
