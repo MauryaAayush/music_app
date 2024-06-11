@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../Providers/theme_provider.dart';
 import 'SliverAppBarForGeading.dart';
 import 'SliverAppBarForSearch.dart';
+import 'carousal_Column.dart';
 
 class HomeScreenCode extends StatelessWidget {
   const HomeScreenCode({
@@ -90,82 +91,12 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 // Add Last Session Widgets here
 
-                CarouselSlider(items: [
-                  Column(
-                    children: [
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('Naino Ne Baandhi'),
-                        subtitle: Text('Best Of Akshay Kumar'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('Jogi - Lyrical |Shaadi M...'),
-                        subtitle: Text('Shafqat Amanat Ali'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('World War (Lofi) (Lo...'),
-                        subtitle: Text('Saaaj Tomar, chaahat,...'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('Naino Ne Baandhi'),
-                        subtitle: Text('Best Of Akshay Kumar'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('Jogi - Lyrical |Shaadi M...'),
-                        subtitle: Text('Shafqat Amanat Ali'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('World War (Lofi) (Lo...'),
-                        subtitle: Text('Saaaj Tomar, chaahat,...'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('Naino Ne Baandhi'),
-                        subtitle: Text('Best Of Akshay Kumar'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('Jogi - Lyrical |Shaadi M...'),
-                        subtitle: Text('Shafqat Amanat Ali'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                      ListTile(
-                        leading: Image.network('https://via.placeholder.com/150'),
-                        // Replace with song image
-                        title: Text('World War (Lofi) (Lo...'),
-                        subtitle: Text('Saaaj Tomar, chaahat,...'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                    ],
-                  ),
+                CarouselSlider(items: const [
+                  Carousal_Column(),
+                  Carousal_Column(),
+                  Carousal_Column(),
+                  Carousal_Column(),
+
                 ], options: CarouselOptions(
                   height: 410,
                   padEnds: false,
@@ -216,3 +147,4 @@ class HomeScreenCode extends StatelessWidget {
     );
   }
 }
+
