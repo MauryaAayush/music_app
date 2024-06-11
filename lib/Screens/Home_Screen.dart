@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:bottom_bar/bottom_bar.dart';
@@ -111,76 +112,67 @@ class _HomeScreenState extends State<HomeScreen>
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16.0, vertical: 8.0),
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           'Your Playlists',
-                                          style: TextStyle(
+                                          style: GoogleFonts.roboto(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.tealAccent,
                                           ),
                                         ),
-                                        Icon(Icons.chevron_right)
+                                        Icon(Icons.chevron_right),
                                       ],
                                     ),
                                   ),
                                   // Add Playlist Widget here
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16.0, vertical: 8.0),
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                                     child: Container(
                                       height: 150,
                                       width: 150,
                                       color: Colors.blue,
                                       // Replace with your playlist widget
-                                      child:
-                                          Center(child: Text('Favorite Songs')),
+                                      child: Center(child: Text('Favorite Songs')),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16.0, vertical: 8.0),
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                                     child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           'Last Session',
-                                          style: TextStyle(
+                                          style: GoogleFonts.roboto(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.tealAccent,
                                           ),
                                         ),
-                                        Icon(Icons.chevron_right)
+                                        Icon(Icons.chevron_right),
                                       ],
                                     ),
                                   ),
                                   // Add Last Session Widgets here
                                   ListTile(
-                                    leading: Image.network(
-                                        'https://via.placeholder.com/150'),
+                                    leading: Image.network('https://via.placeholder.com/150'),
                                     // Replace with song image
                                     title: Text('Naino Ne Baandhi'),
                                     subtitle: Text('Best Of Akshay Kumar'),
                                     trailing: Icon(Icons.more_vert),
                                   ),
                                   ListTile(
-                                    leading: Image.network(
-                                        'https://via.placeholder.com/150'),
+                                    leading: Image.network('https://via.placeholder.com/150'),
                                     // Replace with song image
                                     title: Text('Jogi - Lyrical |Shaadi M...'),
                                     subtitle: Text('Shafqat Amanat Ali'),
                                     trailing: Icon(Icons.more_vert),
                                   ),
                                   ListTile(
-                                    leading: Image.network(
-                                        'https://via.placeholder.com/150'),
+                                    leading: Image.network('https://via.placeholder.com/150'),
                                     // Replace with song image
                                     title: Text('World War (Lofi) (Lo...'),
                                     subtitle: Text('Saaaj Tomar, chaahat,...'),
