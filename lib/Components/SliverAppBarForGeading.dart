@@ -26,8 +26,8 @@ class SliverForGreading extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Hi There,',
-                    style: GoogleFonts.lato(
-                      fontSize: 29,
+                    style: GoogleFonts.roboto(
+                      fontSize: 26,
                       letterSpacing: 1.5,
                       fontWeight: FontWeight.bold,
                       color: Colors.tealAccent,
@@ -38,9 +38,9 @@ class SliverForGreading extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Aayush',
-                    style: GoogleFonts.lato(
-                      fontSize: 22,
-                      letterSpacing: 1,
+                    style: GoogleFonts.roboto(
+                      fontSize: 18.5,
+                      letterSpacing: 1.5,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

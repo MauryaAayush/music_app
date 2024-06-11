@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen>
       final offset = _scrollController.offset;
       setState(() {
         if (offset > 90) {
-          _containerWidth = 300;
+          _containerWidth = MediaQuery.of(context).size.width*0.7;
         } else {
           _containerWidth = 380;
         }
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen>
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: themeProvider.isDarkMode
-                ? [Colors.grey[800]!, Colors.black]
+                ? [Colors.grey[900]!, Colors.black]
                 : [const Color(0xfff5f9ff), Colors.white], // Light mode gradient colors
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

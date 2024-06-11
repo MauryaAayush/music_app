@@ -29,7 +29,7 @@ class SliverForSearch extends StatelessWidget {
             return GestureDetector(
               child: AnimatedContainer(
                 width:_containerWidth,
-                height: 62.0,
+                height: 52.0,
                 duration:
                 const Duration(milliseconds: 150),
                 padding: const EdgeInsets.all(2.0),
@@ -58,7 +58,7 @@ class SliverForSearch extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
-                        fontSize: 16.0,
+                        fontSize: 15,
                       ),
                     ),
                   ],
