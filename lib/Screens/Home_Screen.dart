@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen>
                         children: [
                           NestedScrollView(
                             controller: _scrollController,
-                            physics: BouncingScrollPhysics(),
+                            physics: const BouncingScrollPhysics(),
                             headerSliverBuilder: (context, innerBoxIsScrolled) {
                               return <Widget>[
                                 const SliverForGreading(),
