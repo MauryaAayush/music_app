@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen>
       final offset = _scrollController.offset;
       setState(() {
         if (offset > 90) {
-          _containerWidth = MediaQuery.of(context).size.width*0.7;
+          _containerWidth = MediaQuery.of(context).size.width * 0.7;
         } else {
           _containerWidth = 380;
         }
@@ -74,7 +74,8 @@ class _HomeScreenState extends State<HomeScreen>
           gradient: LinearGradient(
             colors: themeProvider.isDarkMode
                 ? [Colors.grey[900]!, Colors.black]
-                : [const Color(0xfff5f9ff), Colors.white], // Light mode gradient colors
+                : [const Color(0xfff5f9ff), Colors.white],
+            // Light mode gradient colors
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -114,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         horizontal: 16.0, vertical: 8.0),
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           'Your Playlists',
@@ -137,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       color: Colors.blue,
                                       // Replace with your playlist widget
                                       child:
-                                      Center(child: Text('Favorite Songs')),
+                                          Center(child: Text('Favorite Songs')),
                                     ),
                                   ),
                                   Padding(
@@ -186,7 +187,8 @@ class _HomeScreenState extends State<HomeScreen>
                               padding: const EdgeInsets.only(
                                   top: 8.0, left: 4.0, right: 4.0),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Transform.rotate(
                                     angle: 22 / 7 * 2,
@@ -204,7 +206,8 @@ class _HomeScreenState extends State<HomeScreen>
                                     icon: Icon(themeProvider.isDarkMode
                                         ? Icons.wb_sunny
                                         : Icons.nights_stay),
-                                    onPressed: () => themeProvider.toggleTheme(),
+                                    onPressed: () =>
+                                        themeProvider.toggleTheme(),
                                   ),
                                 ],
                               ),
@@ -234,9 +237,6 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
   }
-  
-  
-  
 }
 
 class BottomNavigationBar extends StatelessWidget {
@@ -268,11 +268,9 @@ class BottomNavigationBar extends StatelessWidget {
         BottomBarItem(
           icon: Icon(
             Icons.home,
-            size: 27,
           ),
           title: Text(
             'Home',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
           ),
           activeColor: Colors.tealAccent,
         ),
@@ -280,7 +278,6 @@ class BottomNavigationBar extends StatelessWidget {
           icon: Icon(Icons.trending_up),
           title: Text(
             'Top Charts',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
           activeColor: Colors.tealAccent,
         ),
@@ -302,8 +299,3 @@ class BottomNavigationBar extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
