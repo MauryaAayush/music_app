@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:bottom_bar/bottom_bar.dart';
+import '../Components/SliverAppBarForGeading.dart';
+import '../Components/SliverAppBarForSearch.dart';
 import '../Components/drawer_code.dart';
 import '../Providers/theme_provider.dart';
 import '../Providers/page_provider.dart';
@@ -85,121 +87,8 @@ class _HomeScreenState extends State<HomeScreen>
                           physics: BouncingScrollPhysics(),
                           headerSliverBuilder: (context, innerBoxIsScrolled) {
                             return <Widget>[
-                              SliverAppBar(
-                                automaticallyImplyLeading: false,
-                                toolbarHeight: 65,
-                                backgroundColor: Colors.transparent,
-                                elevation: 0,
-                                expandedHeight: 185,
-                                flexibleSpace: LayoutBuilder(
-                                  builder: (context, constraints) {
-                                    return const FlexibleSpaceBar(
-                                      background: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-
-                                          SizedBox(
-                                            height: 40,
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 16.0),
-                                            child: Text(
-                                              'Hi There,',
-                                              style: TextStyle(
-                                                fontSize: 29,
-                                                letterSpacing: 1.5,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.teal,
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 16.0),
-                                            child: Text(
-                                              'Aayush',
-                                              style: TextStyle(
-                                                fontSize: 22,
-                                                letterSpacing: 1,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                              SliverAppBar(
-                                automaticallyImplyLeading: false,
-                                pinned: true,
-                                backgroundColor: Colors.transparent,
-                                forceMaterialTransparency: true,
-                                elevation: 0,
-                                stretch: true,
-                                toolbarHeight: 65,
-                                title: Align(
-                                  alignment: Alignment.center,
-                                  child: AnimatedBuilder(
-                                    animation: _scrollController,
-                                    builder: (context, child) {
-                                      return GestureDetector(
-                                        child: AnimatedContainer(
-                                          width:_containerWidth,
-                                          height: 62.0,
-                                          duration:
-                                              const Duration(milliseconds: 150),
-                                          padding: const EdgeInsets.all(2.0),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            color: Theme.of(context).cardColor,
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                color: Colors.black26,
-                                                blurRadius: 5.0,
-                                                offset: Offset(1.5, 1.5),
-                                              ),
-                                            ],
-                                          ),
-                                          child: const Row(
-                                            children: [
-                                              SizedBox(width: 10.0),
-                                              Icon(
-                                                CupertinoIcons.search,
-                                                color: Colors.teal,
-                                              ),
-                                              SizedBox(width: 10.0),
-                                              Text(
-                                                "Songs, albums or artists",
-                                                style: TextStyle(
-                                                  fontSize: 16.0,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        // Uncomment the following code if you want to navigate to a search page
-                                        // onTap: () => Navigator.push(
-                                        //   context,
-                                        //   MaterialPageRoute(
-                                        //     builder: (context) => SearchPage(
-                                        //       query: '',
-                                        //       fromHome: true,
-                                        //       autofocus: true,
-                                        //     ),
-                                        //   ),
-                                        // ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
+                              const SliverForGreading(),
+                              SliverForSearch(scrollController: _scrollController, containerWidth: _containerWidth),
 
                             ];
                           },
@@ -372,3 +261,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 }
+
+
+
+
