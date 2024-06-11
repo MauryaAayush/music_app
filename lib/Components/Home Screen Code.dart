@@ -65,7 +65,6 @@ class HomeScreenCode extends StatelessWidget {
                   child: Container(
                     height: 170,
                     width: 170,
-
                     decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(20)
@@ -114,9 +113,10 @@ class HomeScreenCode extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Your Playlists',
+                        'Trending Now',
                         style: GoogleFonts.roboto(
                           fontSize: 18,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.bold,
                           color: Colors.tealAccent,
                         ),
@@ -125,7 +125,27 @@ class HomeScreenCode extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 180,
 
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                    child: Container(
+
+                      width: 170,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      // Replace with your playlist widget
+                      child: Center(child: Text('Favorite Songs')),
+                    ),
+                  ),),
+                )
 
               ],
             ),
