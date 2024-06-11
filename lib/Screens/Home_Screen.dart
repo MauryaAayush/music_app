@@ -167,14 +167,14 @@ class _HomeScreenState extends State<HomeScreen>
                                               ),
                                             ],
                                           ),
-                                          child: Row(
+                                          child: const Row(
                                             children: [
-                                              const SizedBox(width: 10.0),
+                                              SizedBox(width: 10.0),
                                               Icon(
                                                 CupertinoIcons.search,
                                                 color: Colors.teal,
                                               ),
-                                              const SizedBox(width: 10.0),
+                                              SizedBox(width: 10.0),
                                               Text(
                                                 "Songs, albums or artists",
                                                 style: TextStyle(
