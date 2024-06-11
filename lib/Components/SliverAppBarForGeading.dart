@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SliverForGreading extends StatelessWidget {
-  const SliverForGreading({
-    super.key,
-  });
+  const SliverForGreading({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,36 +14,31 @@ class SliverForGreading extends StatelessWidget {
       expandedHeight: 165,
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
-          return const FlexibleSpaceBar(
+          return FlexibleSpaceBar(
             background: Column(
-              crossAxisAlignment:
-              CrossAxisAlignment.start,
-              mainAxisAlignment:
-              MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 SizedBox(
                   height: 40,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Hi There,',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       fontSize: 29,
                       letterSpacing: 1.5,
                       fontWeight: FontWeight.bold,
-                      color: Colors.teal,
+                      color: Colors.tealAccent,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Aayush',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       fontSize: 22,
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,

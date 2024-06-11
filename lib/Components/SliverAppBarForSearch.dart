@@ -50,12 +50,14 @@ class SliverForSearch extends StatelessWidget {
                     SizedBox(width: 10.0),
                     Icon(
                       CupertinoIcons.search,
-                      color: Colors.teal,
+                      color: Colors.tealAccent,
                     ),
                     SizedBox(width: 10.0),
                     Text(
                       "Songs, albums or artists",
                       style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500,
                         fontSize: 16.0,
                       ),
                     ),
