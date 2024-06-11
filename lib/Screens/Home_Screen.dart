@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,8 +21,7 @@ class _HomeScreenState extends State<HomeScreen>
   late TabController _tabController;
   final ScrollController _scrollController = ScrollController();
   double _containerWidth = 380;
-  // final TextEditingController _searchController = TextEditingController();
-  // bool _isSearchFocused = false;
+
 
   @override
   void initState() {
@@ -96,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 expandedHeight: 185,
                                 flexibleSpace: LayoutBuilder(
                                   builder: (context, constraints) {
-                                    return FlexibleSpaceBar(
+                                    return const FlexibleSpaceBar(
                                       background: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -108,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen>
                                             height: 40,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.symmetric(
+                                            padding: EdgeInsets.symmetric(
                                                 horizontal: 16.0),
                                             child: Text(
                                               'Hi There,',
@@ -121,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen>
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.symmetric(
+                                            padding: EdgeInsets.symmetric(
                                                 horizontal: 16.0),
                                             child: Text(
                                               'Aayush',
