@@ -134,7 +134,8 @@ class _HomeScreenState extends State<HomeScreen>
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 16.0, vertical: 8.0),
                                     child: Container(
-                                      height: 100,
+                                      height: 150,
+                                      width: 150,
                                       color: Colors.blue,
                                       // Replace with your playlist widget
                                       child:
@@ -144,13 +145,20 @@ class _HomeScreenState extends State<HomeScreen>
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 16.0, vertical: 8.0),
-                                    child: Text(
-                                      'Last Session',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.tealAccent,
-                                      ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Lat Session',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.tealAccent,
+                                          ),
+                                        ),
+                                        Icon(Icons.chevron_right)
+                                      ],
                                     ),
                                   ),
                                   // Add Last Session Widgets here
