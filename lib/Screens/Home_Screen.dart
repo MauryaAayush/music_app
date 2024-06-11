@@ -132,9 +132,13 @@ class _HomeScreenState extends State<HomeScreen>
                                   Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                                     child: Container(
-                                      height: 150,
-                                      width: 150,
-                                      color: Colors.blue,
+                                      height: 170,
+                                      width: 170,
+                                      
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(20)
+                                      ),
                                       // Replace with your playlist widget
                                       child: Center(child: Text('Favorite Songs')),
                                     ),
