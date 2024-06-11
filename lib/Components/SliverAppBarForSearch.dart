@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/Providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class SliverForSearch extends StatelessWidget {
   const SliverForSearch({
@@ -36,7 +38,7 @@ class SliverForSearch extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius:
                   BorderRadius.circular(10.0),
-                  color: Theme.of(context).cardColor,
+                  color: Provider.of<ThemeProvider>(context,listen: true).isDarkMode ? Colors.grey[900] : Colors.white,
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.black26,

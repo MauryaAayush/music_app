@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../Providers/theme_provider.dart';
@@ -13,7 +14,7 @@ class MiniPlayer extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: themeProvider.isDarkMode
-              ? [Colors.grey[800]!, Colors.black]
+              ? [Colors.grey[900]!, Colors.black]
               : [const Color(0xfff5f9ff), Colors.white],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -35,15 +36,15 @@ class MiniPlayer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Song Title',
-                    style: TextStyle(
+                    'One Love',
+                    style: GoogleFonts.roboto(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
                     ),
                   ),
                   Text(
-                    'Artist Name',
-                    style: TextStyle(
+                    'Subh',
+                    style: GoogleFonts.roboto(
                       fontSize: 14.0,
                     ),
                   ),
@@ -52,7 +53,7 @@ class MiniPlayer extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.skip_previous),
+            icon: Icon(Icons.favorite_border),
             onPressed: () {},
           ),
           IconButton(
