@@ -150,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Lat Session',
+                                          'Last Session',
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
