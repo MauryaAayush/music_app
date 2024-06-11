@@ -288,7 +288,6 @@ class BottomNavigationBar extends StatelessWidget {
           icon: Icon(MdiIcons.youtube),
           title: Text(
             'Youtube',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
           activeColor: Colors.tealAccent.shade700,
         ),
