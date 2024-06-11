@@ -3,7 +3,7 @@ import 'package:music_app/Providers/page_provider.dart';
 import 'package:music_app/Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'Screens/Home_Screen.dart';
+import 'Screens/Main_Screen.dart';
 
 void main() {
   runApp(
