@@ -1,5 +1,5 @@
-List music1 = [
 
+List music1 = [
   'assets/Music/song1.mp3',
   'assets/Music/song2.mp3',
   'assets/Music/song3.mp3',
