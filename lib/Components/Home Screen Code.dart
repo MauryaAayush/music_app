@@ -145,7 +145,207 @@ class HomeScreenCode extends StatelessWidget {
                       child: Center(child: Text('Favorite Songs')),
                     ),
                   ),),
-                )
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Top Charts',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 180,
+
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      child: Container(
+
+                        width: 170,
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        // Replace with your playlist widget
+                        child: Center(child: Text('Favorite Songs')),
+                      ),
+                    ),),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'New Released',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 180,
+
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      child: Container(
+
+                        width: 170,
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        // Replace with your playlist widget
+                        child: Center(child: Text('Favorite Songs')),
+                      ),
+                    ),),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Radio Stations',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 180,
+
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      child: Container(
+                        width: 170,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                            color: Colors.blue,
+
+                        ),
+                        // Replace with your playlist widget
+                        child: Center(child: Text('Favorite Songs')),
+                      ),
+                    ),),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Recommended Artist',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 180,
+
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      child: Container(
+                        width: 170,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blue,
+
+                        ),
+                        // Replace with your playlist widget
+                        child: Center(child: Text('Favorite Songs')),
+                      ),
+                    ),),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Devotional',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 180,
+
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      child: Container(
+
+                        width: 170,
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        // Replace with your playlist widget
+                        child: Center(child: Text('Favorite Songs')),
+                      ),
+                    ),),
+                ),
 
               ],
             ),

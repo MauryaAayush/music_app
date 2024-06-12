@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen>
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: themeProvider.isDarkMode
-                ? [Colors.grey[900]!, Colors.black]
+                ? [Colors.grey.shade900, Colors.black]
                 : [const Color(0xfff5f9ff), Colors.white],
             // Light mode gradient colors
             begin: Alignment.topLeft,
