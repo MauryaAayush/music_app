@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Providers/theme_provider.dart';
+import '../model/Music_List.dart';
 import 'SliverAppBarForGeading.dart';
 import 'SliverAppBarForSearch.dart';
 import 'carousal_Column.dart';
@@ -223,9 +224,4 @@ class _HomeScreenCodeState extends State<HomeScreenCode> {
   }
 }
 
-List<String> music1 = [
-  'Music/song1.mp3',
-  'Music/song2.mp3',
-  'Music/song3.mp3',
-  'Music/song4.mp3',
-];
+
