@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+
 import '../Providers/theme_provider.dart';
 
 class AudioPlayerScreen extends StatelessWidget {
@@ -8,100 +8,121 @@ class AudioPlayerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
+      // backgroundColor: Colors.black,
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: themeProvider.isDarkMode
-                ? [Colors.grey.shade900, Colors.black]
-                : [const Color(0xfff5f9ff), Colors.white],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+            gradient: LinearGradient(
+          colors: themeProvider.isDarkMode
+              ? [Colors.grey.shade900, Colors.black]
+              : [const Color(0xfff5f9ff), Colors.white],
+          // Light mode gradient colors
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        )),
         child: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Thumbnail and Title
               Container(
-                color: Colors.transparent,
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   children: [
-                    Image.asset('assets/img/header.jpg'),
+                    Image.asset(
+                      "assets/img/header.jpg", // Your image path
+                      height: 200,
+                    ),
                     SizedBox(height: 16.0),
                     Text(
-                      music1[_currentSongIndex]['title']!,
+                      "Dil Ke Paas (Indian Version)",
                       style: TextStyle(
-                        fontSize: 24.0,
+                        color: Colors.white,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      'T-Series',
+                      "T-Series",
                       style: TextStyle(
-                        fontSize: 16.0,
+                        color: Colors.white54,
+                        fontSize: 16,
                       ),
                       textAlign: TextAlign.center,
                     ),
                   ],
                 ),
               ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  children: [
-                    Slider(
-                      value: _currentPosition.inSeconds.toDouble(),
-                      min: 0,
-                      max: _totalDuration.inSeconds.toDouble(),
-                      onChanged: (value) {
-                        final position = Duration(seconds: value.toInt());
-                        _assetsAudioPlayer.seek(position);
-                      },
-                      activeColor: Colors.white,
-                      inactiveColor: Colors.grey,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          _formatDuration(_currentPosition),
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Text(
-                          _formatDuration(_totalDuration - _currentPosition),
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              SizedBox(height: 16.0),
+              // Seekbar
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      icon: Icon(Icons.skip_previous, size: 32.0),
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(
-                     Icons.play_arrow,
-                        size: 32.0,
+                    Text("00:00", style: TextStyle(color: Colors.white)),
+                    Expanded(
+                      child: Slider(
+                        value: 0.0,
+                        onChanged: (value) {},
+                        activeColor: Colors.white,
+                        inactiveColor: Colors.white54,
                       ),
+                    ),
+                    Text("04:25", style: TextStyle(color: Colors.white)),
+                  ],
+                ),
+              ),
+              // Player Controls
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.skip_previous,
+                          color: Colors.white, size: 36),
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.skip_next, size: 32.0),
+                      icon:
+                          Icon(Icons.play_arrow, color: Colors.white, size: 36),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon:
+                          Icon(Icons.skip_next, color: Colors.white, size: 36),
                       onPressed: () {},
                     ),
                   ],
                 ),
               ),
               SizedBox(height: 16.0),
+              // Up Next
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  "Up Next",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              // Up Next Placeholder
+              Expanded(
+                child: Center(
+                  child: Text(
+                    "Up Next Songs Placeholder",
+                    style: TextStyle(
+                      color: Colors.white54,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
