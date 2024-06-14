@@ -68,8 +68,8 @@ class DrawerScreen extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   image: AssetImage(
                     Theme.of(context).brightness == Brightness.dark
-                        ? 'assets/header-dark.jpg'
-                        : 'assets/header.jpg',
+                        ? 'assets/img/header-dark.jpg'
+                        : 'assets/img/header.jpg',
                   ),
                 ),
               ),

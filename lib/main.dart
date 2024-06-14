@@ -3,9 +3,11 @@ import 'package:music_app/Providers/page_provider.dart';
 import 'package:music_app/Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'Providers/Audio_Player_Provider.dart';
 import 'Screens/Main_Screen.dart';
 
 void main() {
+
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(
@@ -13,7 +15,8 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => PageProvider(),
-      )
+      ),
+
     ], child: const MusicApp()),
   );
 }
