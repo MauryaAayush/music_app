@@ -9,6 +9,11 @@ class AudioPlayerScreen extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       // backgroundColor: Colors.black,
+
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: Icon(Icons.keyboard_arrow_down),
+      ),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -27,7 +32,9 @@ class AudioPlayerScreen extends StatelessWidget {
 
               Row(
                 children: [
-                Icon(Icons.keyboard_arrow_down)
+                  Icon(Icons.keyboard_arrow_down),
+
+
                 ],
               ),
 
