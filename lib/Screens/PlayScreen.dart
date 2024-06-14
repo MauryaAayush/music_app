@@ -96,7 +96,7 @@ class AudioPlayerScreen extends StatelessWidget {
                     ),
                     IconButton(
                       icon: Icon(Icons.skip_next, size: 32.0),
-                      onPressed: _next,
+                      onPressed: () {},
                     ),
                   ],
                 ),
