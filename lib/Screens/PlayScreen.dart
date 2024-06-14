@@ -24,6 +24,9 @@ class AudioPlayerScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+
+
+
               // Thumbnail and Title
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
