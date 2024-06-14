@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ class MiniPlayer extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => AudioPlayerScreen(),));
       },
       child: Container(
-        height: 70.0,
+        height: 75.0,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: themeProvider.isDarkMode
@@ -28,10 +29,16 @@ class MiniPlayer extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Container(
-              width: 70.0,
-              height: 70.0,
-              color: Colors.grey,
-              child: Icon(Icons.music_note, color: Colors.white),
+              margin: EdgeInsets.symmetric(horizontal: 17),
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius:BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: AssetImage('assets/img/img_1.png'),
+                  fit: BoxFit.cover, // Optional: to make the image cover the entire container
+                ),
+              ),
             ),
             Expanded(
               child: Padding(
