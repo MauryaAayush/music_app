@@ -45,8 +45,8 @@ class Carousal_Column extends StatelessWidget {
               width: 70,
               child: Image.network('https://via.placeholder.com/150')),
           // Replace with song image
-          title: Text('World War (Lofi) (Lo...'),
-          subtitle: Text('Saaaj Tomar, chaahat,...'),
+          title: Text('Thar (Lofi) (Lo...'),
+          subtitle: Text('Best Songs'),
           trailing: Icon(Icons.more_vert),
         ),
       ],

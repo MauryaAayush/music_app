@@ -92,14 +92,16 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 // Add Last Session Widgets here
 
-                CarouselSlider(items: const [
+                CarouselSlider(
+
+                    items: const [
                   Carousal_Column(),
                   Carousal_Column(),
                   Carousal_Column(),
                   Carousal_Column(),
 
                 ], options: CarouselOptions(
-                  height: 310,
+                  height: 340,
                   padEnds: false,
                   viewportFraction:
                   0.85, // Adjust this value for visibility from the right
@@ -346,6 +348,41 @@ class HomeScreenCode extends StatelessWidget {
                       ),
                     ),),
                 ),
+
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Recent Songs',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.tealAccent,
+                        ),
+                      ),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+                CarouselSlider(
+
+                    items: const [
+                      Carousal_Column(),
+                      Carousal_Column(),
+                      Carousal_Column(),
+                      Carousal_Column(),
+
+                    ], options: CarouselOptions(
+                  height: 340,
+                  padEnds: false,
+                  viewportFraction:
+                  0.85, // Adjust this value for visibility from the right
+                  enableInfiniteScroll: false,
+                  autoPlay: false,
+                )),
 
               ],
             ),
