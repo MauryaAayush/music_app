@@ -1,29 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:assets_audio_player/assets_audio_player.dart';
 import '../Providers/theme_provider.dart';
 
 class AudioPlayerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      // backgroundColor: themeProvider.isDarkMode ? Colors.black : Colors.white,
-      appBar: AppBar(
-        title: Text('Audio Player'),
-        backgroundColor: Colors.transparent,
-        // themeProvider.isDarkMode
-        //     ? [Colors.grey.shade900, Colors.black]
-        //     : [const Color(0xfff5f9ff), Colors.white],
-      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: themeProvider.isDarkMode
                 ? [Colors.grey.shade900, Colors.black]
                 : [const Color(0xfff5f9ff), Colors.white],
-            // Light mode gradient colors
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -31,18 +21,15 @@ class AudioPlayerScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              // Album Art and Song Info
               Container(
                 color: Colors.transparent,
                 padding: EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    // Image.network(''),
-                    
-                   Image.asset('assets/img/header.jpg'),
+                    Image.asset('assets/img/header.jpg'),
                     SizedBox(height: 16.0),
                     Text(
-                      'Dil Ke Paas (Indian Version)',
+                      music1[_currentSongIndex]['title']!,
                       style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
@@ -59,16 +46,19 @@ class AudioPlayerScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              // Slider and Time
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   children: [
                     Slider(
-                      value: 0,
+                      value: _currentPosition.inSeconds.toDouble(),
                       min: 0,
-                      max: 100, // Replace with actual max duration in milliseconds
-                      onChanged: (value) {},
+                      max: _totalDuration.inSeconds.toDouble(),
+                      onChanged: (value) {
+                        final position = Duration(seconds: value.toInt());
+                        _assetsAudioPlayer.seek(position);
+                      },
                       activeColor: Colors.white,
                       inactiveColor: Colors.grey,
                     ),
@@ -76,11 +66,11 @@ class AudioPlayerScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '00:00',
+                          _formatDuration(_currentPosition),
                           style: TextStyle(color: Colors.white),
                         ),
                         Text(
-                          '04:25', // Replace with actual duration
+                          _formatDuration(_totalDuration - _currentPosition),
                           style: TextStyle(color: Colors.white),
                         ),
                       ],
@@ -88,8 +78,6 @@ class AudioPlayerScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              // Playback Controls
-              Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
@@ -100,12 +88,15 @@ class AudioPlayerScreen extends StatelessWidget {
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.play_arrow, size: 32.0),
+                      icon: Icon(
+                     Icons.play_arrow,
+                        size: 32.0,
+                      ),
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.skip_next,size: 32.0),
-                      onPressed: () {},
+                      icon: Icon(Icons.skip_next, size: 32.0),
+                      onPressed: _next,
                     ),
                   ],
                 ),

@@ -9,12 +9,12 @@
 // ];
 
 
-List music1 = [
-  'Music/song1.mp3',
-  'Music/song2.mp3',
-  'Music/song3.mp3',
-  'Music/song4.mp3',
-];
+// List music1 = [
+//   'Music/song1.mp3',
+//   'Music/song2.mp3',
+//   'Music/song3.mp3',
+//   'Music/song4.mp3',
+// ];
 
 List music2 = [
   'assets/Music/song5.mp3',
