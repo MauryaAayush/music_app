@@ -112,12 +112,12 @@ class _SearchScreenState extends State<SearchScreen> {
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       fit: BoxFit.cover,
-                                      image: NetworkImage(song.image)),
+                                      image: NetworkImage(song.allArtists[index].images[index].url)),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
-                            title: Text(song.song, style: TextStyle(fontSize: 20)),
+                            title: Text(song.allArtists[index].name, style: TextStyle(fontSize: 20)),
                             subtitle: Text(
-                              song.singers,
+                              song.allArtists[index].name,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           );
