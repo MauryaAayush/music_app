@@ -25,30 +25,6 @@ class Song {
   }
 }
 
-// class Song {
-//   final String image;
-//   final String mediaUrl;
-//   final String song;
-//   final String singers;
-//   final int playCount;
-//
-//   Song(
-//       {required this.image,
-//         required this.mediaUrl,
-//         required this.song,
-//         required this.singers,
-//         required this.playCount});
-//
-//   factory Song.fromJson(Map<String, dynamic> json) {
-//     return Song(
-//         image: json['image'],
-//         mediaUrl: json['media_url'],
-//         song: json['song'],
-//         singers: json['singers'],
-//         playCount: json['play_count']);
-//   }
-// }
-
 
 class SongService {
   final String baseUrl = 'http://192.168.0.108:5100';
