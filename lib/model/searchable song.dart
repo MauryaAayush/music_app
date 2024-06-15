@@ -375,7 +375,6 @@ class SongService {
     } else {
       throw Exception('Failed to load songs');
     }
-    
-    // print(songs.name);
+
   }
 }
