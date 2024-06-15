@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/Providers/Audio_Player_Provider.dart';
 import 'package:music_app/Providers/page_provider.dart';
 import 'package:music_app/Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ void main() {
       ChangeNotifierProvider(
         create: (context) => PageProvider(),
       ),
+      ChangeNotifierProvider(create: (context) => AudioPlayerProvider(),)
 
     ], child: const MusicApp()),
   );

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:music_app/Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../Screens/SearchScreen.dart';
+
 class SliverForSearch extends StatelessWidget {
   const SliverForSearch({
     super.key,
@@ -67,16 +69,12 @@ class SliverForSearch extends StatelessWidget {
                 ),
               ),
               // Uncomment the following code if you want to navigate to a search page
-              // onTap: () => Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => SearchPage(
-              //       query: '',
-              //       fromHome: true,
-              //       autofocus: true,
-              //     ),
-              //   ),
-              // ),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchScreen(),
+                ),
+              ),
             );
           },
         ),
