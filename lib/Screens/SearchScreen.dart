@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
 
         child: SafeArea(
-          
+          bottom: false,
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Padding(
