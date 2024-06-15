@@ -32,7 +32,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isSearching = _searchController.text.isNotEmpty;
     final themeProvider = Provider.of<  ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
@@ -120,7 +119,6 @@ class _SearchScreenState extends State<SearchScreen> {
                       });
                 }),
 
-                if (!isSearching)
                   Wrap(
                     spacing: 8.0,
                     children: recentSearches.map((search) {
@@ -145,7 +143,6 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
                 // Show trending searches only if not searching
-                if (!isSearching)
                   Wrap(
                     spacing: 8.0,
                     children: trendingSearches.map((search) {
@@ -155,54 +152,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     }).toList(),
                   ),
                 // Show search results if searching
-                if (isSearching)
-                  Consumer<AudioPlayerProvider>(
-                    builder: (context, provider, child) {
-                      if (provider.isLoading) {
-                        return Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                          ),
-                        );
-                      }
 
-                      // Check if songs are empty
-                      if (provider.songs.isEmpty) {
-                        return Center(
-                          child: Text('No songs found'),
-                        );
-                      }
-
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: provider.songs.length,
-                        itemBuilder: (context, index) {
-                          Song song = provider.songs[index];
-                          return ListTile(
-                            leading: Container(
-                              height: 60,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(song.image),
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                            title: Text(
-                              song.song,
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            subtitle: Text(
-                              song.singers,
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  ),
               ],
             ),
           ),
