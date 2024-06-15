@@ -32,11 +32,12 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<  ThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
 
       
       body: Container(
+        height: double.infinity,
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: themeProvider.isDarkMode
@@ -51,7 +52,6 @@ class _SearchScreenState extends State<SearchScreen> {
         child: SafeArea(
           bottom: false,
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(

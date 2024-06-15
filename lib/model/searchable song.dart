@@ -32,11 +32,17 @@ class SongService {
   Future<List<Song>> searchSongs(String query) async {
     final encodedQuery = query.replaceAll(' ', ''); // Remove spaces
     final response =
-    await http.get(Uri.parse('$baseUrl/song/?query=$encodedQuery'));
+    await http.get(Uri.parse('https://saavn.dev/api/search/songs?query=$query'));
+
+    // log(response.code);
+    // print(response.statusCode);
+    print(response.body);
 
     if (response.statusCode == 200) {
       List<dynamic> jsonList = json.decode(response.body);
+
       List<Song> songs = jsonList.map((json) => Song.fromJson(json)).toList();
+
       return songs;
     } else {
       throw Exception('Failed to load songs');
