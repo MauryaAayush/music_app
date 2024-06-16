@@ -13,7 +13,7 @@ class MiniPlayer extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AudioPlayerScreen(),));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AudioPlayerScreen(songPath: '', songTitle: '',),));
       },
       child: Container(
         height: 75.0,
