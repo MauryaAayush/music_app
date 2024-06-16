@@ -3,13 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:provider/provider.dart';
+
+import '../Providers/Audio_Player_Provider.dart';
 import '../Providers/theme_provider.dart';
+
 import 'SliverAppBarForGeading.dart';
 import 'SliverAppBarForSearch.dart';
 import 'carousal_Column.dart';
 
 class HomeScreenCode extends StatelessWidget {
-  const HomeScreenCode({
+   HomeScreenCode({
     super.key,
     required ScrollController scrollController,
     required double containerWidth,
@@ -22,6 +26,8 @@ class HomeScreenCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final musicPlayerProvider = Provider.of<AudioPlayerProvider>(context);
     return Stack(
       children: [
         NestedScrollView(
@@ -62,16 +68,52 @@ class HomeScreenCode extends StatelessWidget {
                 // Add Playlist Widget here
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Container(
-                    height: 170,
-                    width: 170,
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    // Replace with your playlist widget
-                    child: Center(child: Text('Favorite Songs')),
-                  ),
+                  child: Column(
+                    children: [
+                      CarouselSlider(
+                        items: musicPlayerProvider.musicList.map((musicPath) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return InkWell(
+                                onTap: () {
+                                  musicPlayerProvider.playMusic(musicPath);
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      musicPath.split('/').last, // Display file name
+                                      style: TextStyle(fontSize: 16.0),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        }).toList(),
+                        options: CarouselOptions(
+                          height: 200.0,
+                          enlargeCenterPage: true,
+                          enableInfiniteScroll: false,
+                          autoPlay: false,
+                        ),
+                      ),
+                      // ElevatedButton(
+                      //   onPressed: musicPlayerProvider.isPlaying
+                      //
+                      //       ? musicPlayerProvider.pauseMusic
+                      //       : musicPlayerProvider.playMusic,
+                      //   child: Text(
+                      //     musicPlayerProvider.isPlaying ? 'Pause Music' : 'Play Music',
+                      //   ),
+                      // ),
+                    ],
+                  )
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -423,3 +465,7 @@ class HomeScreenCode extends StatelessWidget {
     );
   }
 }
+
+
+
+
