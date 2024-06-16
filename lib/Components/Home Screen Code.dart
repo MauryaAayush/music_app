@@ -86,7 +86,13 @@ class HomeScreenCode extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          color: Colors.blueAccent,
+
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white70),
+                              color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(10)
+
+                          ),
                           child: Center(
                             child: Text(
                               'Song ${index + 1}',

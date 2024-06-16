@@ -22,15 +22,11 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
     super.initState();
     _assetsAudioPlayer.open(
       Audio(widget.songPath),
-      autoStart: false,
+      autoStart: true,
     );
   }
 
-  @override
-  void dispose() {
-    _assetsAudioPlayer.dispose();
-    super.dispose();
-  }
+
 
   void _playPause() {
     _assetsAudioPlayer.playOrPause();
@@ -45,7 +41,11 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
 
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Icon(Icons.keyboard_arrow_down),
+        leading:
+        IconButton(onPressed: () {
+          Navigator.pop(context);
+        }, icon: Icon(Icons.keyboard_arrow_down))
+        ,
         title: Text(widget.songTitle),
       ),
       body: Container(
