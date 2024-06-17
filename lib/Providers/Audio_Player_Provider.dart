@@ -72,11 +72,104 @@ class MusicProvider extends ChangeNotifier {
   }
 
 
+  List mainList = [
+    {
+      'image': 'assets/images/image1.jpg',
+      'music': 'assets/Music/song1.mp3',
+      'name': 'Aaya fir vo najar ese'
+    },
+    {
+      'image': 'assets/images/image2.jpg',
+      'music': 'assets/Music/song2.mp3',
+      'name': "Main Dhoondne Ko Zamaane Mein"
+    },
+    {
+      'image': 'assets/images/image3.jpg',
+      'music': 'assets/Music/song3.mp3',
+      'name': 'Dil ke Pass '
+    },
+    {
+      'image': 'assets/images/image4.jpg',
+      'music': 'assets/Music/song4.mp3',
+      'name': 'Jo  tu mera hamdarad hai'
+    },
+    {
+      'image': 'assets/images/image5.jpg',
+      'music': 'assets/Music/song5.mp3',
+      'name': 'Teri Galliya'
+    },
+    {
+      'image': 'assets/images/image6.jpg',
+      'music': 'assets/Music/song6.mp3',
+      'name': 'Hasi ban gae'
+    },
+    {
+      'image': 'assets/images/image7.jpg',
+      'music': 'assets/Music/song7.mp3',
+      'name': 'Aam jehe munde'
+    },
+    {
+      'image': 'assets/images/image8.jpg',
+      'music': 'assets/Music/song8.mp3',
+      'name': 'One Love'
+    },
+    {
+      'image': 'assets/images/image9.jpg',
+      'music': 'assets/Music/song9.mp3',
+      'name': 'Tukur Tukur'
+    },
+    {
+      'image': 'assets/images/image10.jpg',
+      'music': 'assets/Music/song10.mp3',
+      'name': 'Man ma Emotion'
+    },
+    {
+      'image': 'assets/images/image11.jpg',
+      'music': 'assets/Music/song11.mp3',
+      'name': 'Keh du tumhe'
+    },
+    {
+      'image': 'assets/images/image12.jpg',
+      'music': 'assets/Music/song12.mp3',
+      'name': 'Dill meri Na sune'
+    },
+    {
+      'image': 'assets/images/image13.jpg',
+      'music': 'assets/Music/song13.mp3',
+      'name': 'Tera Fitoor'
+    },
+    {
+      'image': 'assets/images/image14.jpg',
+      'music': 'assets/Music/song14.mp3',
+      'name': 'Rabba Rabba'
+    },
+    {
+      'image': 'assets/images/image15.jpg',
+      'music': 'assets/Music/song15.mp3',
+      'name': 'Arjan vally'
+    },
+    {
+      'image': 'assets/images/image16.jpg',
+      'music': 'assets/Music/song16.mp3',
+      'name': 'Saari Duniya jala dege'
+    },
+    {
+      'image': 'assets/images/image17.jpg',
+      'music': 'assets/Music/song17.mp3',
+      'name': 'Jabal jabal'
+    },
+    {
+      'image': 'assets/images/image18.jpg',
+      'music': 'assets/Music/song18.mp3',
+      'name': 'Dekhte Dekhte'
+    },
+  ];
 
-  void openSong(List<String> songList, int index) {
+  void openSong(List songList, int index) {
+
     currentIndex = index;
     assetsAudioPlayer.open(
-      Audio(songList[currentIndex]),
+      Audio(songList[currentIndex]['music']),
       autoStart: true,
       showNotification: true,
     );
@@ -97,7 +190,7 @@ class MusicProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void nextSong(List<String> songList) {
+  void nextSong(List songList) {
     if (currentIndex < songList.length - 1) {
       currentIndex++;
       assetsAudioPlayer.stop();
@@ -106,7 +199,7 @@ class MusicProvider extends ChangeNotifier {
     }
   }
 
-  void previousSong(List<String> songList) {
+  void previousSong(List songList) {
     if (currentIndex > 0) {
       currentIndex--;
       assetsAudioPlayer.stop();

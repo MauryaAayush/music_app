@@ -10,6 +10,7 @@ import '../Providers/theme_provider.dart';
 
 import '../Screens/PlayScreen.dart';
 import '../model/Image_List.dart';
+import '../model/Main_List.dart';
 import '../model/Music_List.dart';
 import 'SliverAppBarForGeading.dart';
 import 'SliverAppBarForSearch.dart';
@@ -31,7 +32,7 @@ class HomeScreenCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final musicPlayerProvider = Provider.of<AudioPlayerProvider>(context);
-    final musicProvider = Provider.of<MusicProvider>(context,listen: false);
+    final musicProviderfalse = Provider.of<MusicProvider>(context,listen: false);
 
     return Stack(
       children: [
@@ -75,7 +76,7 @@ class HomeScreenCode extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 8.0),
                     child: CarouselSlider.builder(
-                      itemCount: musicList.length,
+                      itemCount: musicProviderfalse.mainList.length,
                       itemBuilder: (context, index, realIndex) {
                         return GestureDetector(
                           child: Container(
@@ -83,13 +84,12 @@ class HomeScreenCode extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
                               image: DecorationImage(
-                                image: AssetImage(imageList[index]),
+                                image: AssetImage(musicProviderfalse.mainList[index]['image']),
                                 fit: BoxFit.cover,
                               ),
                             ),
                             child: Center(
-                              child: Text(
-                                'Song ${index + 1}',
+                              child: Text(musicProviderfalse.mainList[index]['name'],
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
@@ -102,13 +102,12 @@ class HomeScreenCode extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => AudioPlayerScreen(
-                                  // songPath: musicList[index],
-                                  // songTitle: 'Song ${index + 1}',
-                                  songList: musicList, initialIndex: index,
+                                 initialIndex: index,
+                                  songList: musicProviderfalse.mainList,
                                 ),
                               ),
                             );
-                            musicProvider.openSong(musicList,index);
+                            musicProviderfalse.openSong(musicProviderfalse.mainList,index);
                             // Navigator.of(context).pushNamed('/play');
 
                           },

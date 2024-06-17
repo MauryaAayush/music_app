@@ -43,13 +43,13 @@ class MusicApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.isDarkMode ? ThemeData.dark() : ThemeData.light(),
-      // home: const HomeScreen(),
-      routes: {
-        '/': (context) => HomeScreen(),
-        '/play': (context) =>
-            AudioPlayerScreen(songList: musicList, initialIndex: 0),
-        '/search': (context) => SearchScreen(),
-      },
+      home: const HomeScreen(),
+      // routes: {
+      //   '/': (context) => HomeScreen(),
+      //   '/play': (context) =>
+      //       AudioPlayerScreen(songList: musicList, initialIndex: 0),
+      //   '/search': (context) => SearchScreen(),
+      // },
     );
   }
 }

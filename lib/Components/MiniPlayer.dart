@@ -7,18 +7,20 @@ import 'package:provider/provider.dart';
 
 import '../Providers/theme_provider.dart';
 import '../Screens/PlayScreen.dart';
+import '../model/Main_List.dart';
 
 class MiniPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final musicProvider = Provider.of<MusicProvider>(context);
+    final musicProviderfalse = Provider.of<MusicProvider>(context,listen: false);
 
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => AudioPlayerScreen(
-            songList: musicList,
+            songList: musicProviderfalse.mainList,
             initialIndex: 0,
           ),
         ));
@@ -43,7 +45,7 @@ class MiniPlayer extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/image8.jpg'),
+                  image: AssetImage(musicProvider.mainList[musicProvider.currentIndex]['image']),
                   fit: BoxFit
                       .cover, // Optional: to make the image cover the entire container
                 ),
@@ -57,14 +59,14 @@ class MiniPlayer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'One Love',
+                      musicProvider.mainList[musicProvider.currentIndex]['name'],
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
                       ),
                     ),
                     Text(
-                      'Subh',
+                      'T-series',
                       style: GoogleFonts.roboto(
                         fontSize: 14.0,
                       ),
@@ -88,7 +90,7 @@ class MiniPlayer extends StatelessWidget {
               icon: Icon(Icons.skip_previous),
               onPressed: () {
                 Provider.of<MusicProvider>(context, listen: false)
-                    .previousSong(musicList);
+                    .previousSong(musicProviderfalse.mainList);
               },
             ),
         Consumer<MusicProvider>(
@@ -106,7 +108,7 @@ class MiniPlayer extends StatelessWidget {
               icon: Icon(Icons.skip_next),
               onPressed: () {
                 Provider.of<MusicProvider>(context, listen: false)
-                    .nextSong(musicList);
+                    .nextSong(musicProviderfalse.mainList);
               },
             ),
           ],

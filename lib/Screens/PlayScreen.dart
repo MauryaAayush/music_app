@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/Providers/Audio_Player_Provider.dart';
+import 'package:music_app/model/Main_List.dart';
 import 'package:provider/provider.dart';
 import '../Providers/theme_provider.dart';
 
 class AudioPlayerScreen extends StatelessWidget {
-  final List<String> songList;
+  final List songList;
   final int initialIndex;
 
   AudioPlayerScreen({
@@ -16,7 +17,8 @@ class AudioPlayerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     // AudioPlayerProvider audioPlayerProvider = Provider.of<AudioPlayerProvider>(context,listen: false);
-    final musicProvider = Provider.of<MusicProvider>(context, listen: false);
+    final musicProviderfalse =
+        Provider.of<MusicProvider>(context, listen: false);
     final musicProviderTrue = Provider.of<MusicProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +29,8 @@ class AudioPlayerScreen extends StatelessWidget {
           },
           icon: Icon(Icons.keyboard_arrow_down),
         ),
-        title: Text('Song ${musicProviderTrue.currentIndex + 1}'),
+        title: Text(
+            musicProviderTrue.mainList[musicProviderTrue.currentIndex]['name']),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -41,10 +44,20 @@ class AudioPlayerScreen extends StatelessWidget {
         ),
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-
+              Container(
+                height: 300,
+                width: 300,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(musicProviderTrue
+                                .mainList[musicProviderTrue.currentIndex]
+                            ['image']),fit: BoxFit.cover
+                    )
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: SliderTheme(
@@ -55,14 +68,16 @@ class AudioPlayerScreen extends StatelessWidget {
                     thumbShape: RoundSliderThumbShape(enabledThumbRadius: 7.0),
                   ),
                   child: Slider(
-                    value: musicProvider.currentPosition.inMilliseconds
+                    value: musicProviderTrue.currentPosition.inMilliseconds
                         .toDouble(),
                     min: 0.0,
-                    max: musicProvider.totalDuration.inMilliseconds.toDouble(),
+                    max: musicProviderTrue.totalDuration.inMilliseconds
+                        .toDouble(),
                     activeColor: Colors.white,
                     inactiveColor: Colors.grey.shade700,
                     onChanged: (value) {
-                      musicProvider.seek(Duration(milliseconds: value.toInt()));
+                      musicProviderTrue
+                          .seek(Duration(milliseconds: value.toInt()));
                     },
                   ),
                 ),
@@ -72,18 +87,14 @@ class AudioPlayerScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(musicProvider.formatDuration(
-                        musicProvider.currentPosition),
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .labelSmall),
                     Text(
-                      musicProvider.formatDuration(musicProvider.totalDuration),
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .labelSmall,
+                        musicProviderTrue
+                            .formatDuration(musicProviderTrue.currentPosition),
+                        style: Theme.of(context).textTheme.labelSmall),
+                    Text(
+                      musicProviderTrue
+                          .formatDuration(musicProviderTrue.totalDuration),
+                      style: Theme.of(context).textTheme.labelSmall,
                     ),
                   ],
                 ),
@@ -94,23 +105,25 @@ class AudioPlayerScreen extends StatelessWidget {
                   IconButton(
                     icon: Icon(Icons.skip_previous),
                     iconSize: 30,
-                    onPressed: () => musicProvider.previousSong(songList),
+                    onPressed: () => musicProviderfalse
+                        .previousSong(musicProviderfalse.mainList),
                   ),
                   StreamBuilder(
-                    stream: musicProvider.assetsAudioPlayer.isPlaying,
+                    stream: musicProviderTrue.assetsAudioPlayer.isPlaying,
                     builder: (context, asyncSnapshot) {
                       final bool isPlaying = asyncSnapshot.data ?? false;
                       return IconButton(
                         icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                         iconSize: 30,
-                        onPressed: musicProvider.playPause,
+                        onPressed: musicProviderfalse.playPause,
                       );
                     },
                   ),
                   IconButton(
                     icon: Icon(Icons.skip_next),
                     iconSize: 30,
-                    onPressed: () => musicProvider.nextSong(songList),
+                    onPressed: () => musicProviderfalse
+                        .nextSong(musicProviderfalse.mainList),
                   ),
                 ],
               ),
