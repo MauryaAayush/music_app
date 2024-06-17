@@ -52,7 +52,7 @@ class AudioPlayerScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                        image: AssetImage(musicProviderTrue
+                        image: NetworkImage(musicProviderTrue
                                 .mainList[musicProviderTrue.currentIndex]
                             ['image']),fit: BoxFit.cover
                     )

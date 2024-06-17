@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/Providers/Audio_Player_Provider.dart';
+import 'package:music_app/Screens/Main_Screen.dart';
 import 'package:provider/provider.dart';
 
 import '../Providers/theme_provider.dart';
@@ -123,6 +124,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             ),
                             onTap: () {
                               provider.updateApiClickedSongs(song.songUrl, song.title, song.imageUrl);
+                              
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen(),));
                             },
                           );
                         });
