@@ -60,11 +60,3 @@ class SongService {
   }
 }
 
-// Future<List<Song>> parsePlaylistJson() async {
-//   String playListJson =
-//   await rootBundle.loadString('assets/json/playlist.json');
-//   final parsed = jsonDecode(playListJson);
-//   final songList = parsed['songs'] as List<dynamic>;
-//   return songList.map((json) => Song.fromJson(json)).toList();
-
-// }
