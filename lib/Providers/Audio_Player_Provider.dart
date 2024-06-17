@@ -1,5 +1,5 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:music_app/model/searchable%20song.dart';
 
 
@@ -24,87 +24,84 @@ final List<String> trendingSearches = [
 ];
 
 class AudioPlayerProvider extends ChangeNotifier {
+  final AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
 
-  // late AudioPlayer _audioPlayer;
-  // bool _isPlaying = false;
-  // int _currentIndex = 0;
-  // late List<String> musicList;
-  //
-  // AudioPlayerProvider() {
-  //   _audioPlayer = AudioPlayer();
-  //   _initializeAudioPlayer();
-  // }
-  //
-  // Future<void> _initializeAudioPlayer() async {
-  //   await _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(musicList[_currentIndex])));
-  //   _audioPlayer.playbackEventStream.listen((event) {
-  //     _isPlaying = event.processingState == ProcessingState.loading;
-  //     notifyListeners();
-  //   });
-  // }
-  //
-  //
-  // bool get isPlaying => _isPlaying;
-  // int get currentIndex => _currentIndex;
-  //
-  // void setMusicList(List<String> list) {
-  //   musicList = list;
-  //   _initializeAudioPlayer();
-  // }
-  //
-  // Future<void> play() async {
-  //   await _audioPlayer.play();
-  // }
-  //
-  // Future<void> pause() async {
-  //   await _audioPlayer.pause();
-  // }
-  //
-  // Future<void> stop() async {
-  //   await _audioPlayer.stop();
-  // }
-  //
-  // void seek(Duration position) {
-  //   _audioPlayer.seek(position);
-  // }
-  //
-  // void changeTrack(int index) {
-  //   _currentIndex = index;
-  //   _initializeAudioPlayer();
-  // }
+  Stream<bool> get isPlaying => assetsAudioPlayer.isPlaying;
 
+  Duration currentPosition = Duration.zero;
+  Duration totalDuration = Duration.zero;
+  int currentIndex = 0;
 
-  //
-  // late AudioPlayer _audioPlayer;
-  // bool _isPlaying = false;
-  // int _currentIndex = 0;
-  //
-  //
-  // Future<void> playMusic(String musicPath) async {
-  //   await _audioPlayer.setFilePath(musicPath);
-  //   await _audioPlayer.play();
-  //   notifyListeners();
-  // }
-  //
-  // Future<void> pauseMusic() async {
-  //   await _audioPlayer.pause();
-  //   notifyListeners();
-  // }
-  //
-  // Future<void> stopMusic() async {
-  //   await _audioPlayer.stop();
-  //   notifyListeners();
-  // }
-  //
-  // bool get isPlaying => _audioPlayer.playing;
-  //
-  // @override
-  // void dispose() {
-  //   _audioPlayer.dispose();
-  //   super.dispose();
-  // }
+  void openSong(List<String> songList, int index) {
+    currentIndex = index;
+    assetsAudioPlayer.open(
+      Audio(songList[currentIndex]),
+      autoStart: true,
+      showNotification: true,
+    );
+
+    assetsAudioPlayer.currentPosition.listen((duration) {
+      currentPosition = duration;
+      notifyListeners();
+    });
+
+    assetsAudioPlayer.current.listen((playingAudio) {
+      totalDuration = playingAudio?.audio.duration ?? Duration.zero;
+      notifyListeners();
+    });
+  }
+
+  void playPause() {
+    assetsAudioPlayer.playOrPause();
+    notifyListeners();
+  }
+
+  void nextSong(List<String> songList) {
+    if (currentIndex < songList.length - 1) {
+      currentIndex++;
+      assetsAudioPlayer.stop();
+      openSong(songList, currentIndex);
+      notifyListeners();
+    }
+  }
+
+  void previousSong(List<String> songList) {
+    if (currentIndex > 0) {
+      currentIndex--;
+      assetsAudioPlayer.stop();
+      openSong(songList, currentIndex);
+      notifyListeners();
+    }
+  }
+
+  void seek(Duration position) {
+    assetsAudioPlayer.seek(position);
+    notifyListeners();
+  }
+
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    notifyListeners();
+  }
+
+  String formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final hours = duration.inHours;
+    final minutes = duration.inMinutes.remainder(60);
+    final seconds = duration.inSeconds.remainder(60);
+    return [
+      if (hours > 0) hours,
+      minutes,
+      seconds,
+    ].map(twoDigits).join(':');
+  }
 
 
+
+
+
+
+  // for API Work
   // Future<void> _loadSongs() async {
   //   String playListJson =
   //   await rootBundle.loadString('assets/json/playlist.json');
