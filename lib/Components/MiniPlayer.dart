@@ -1,19 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_app/model/Music_List.dart';
 import 'package:provider/provider.dart';
 
 import '../Providers/theme_provider.dart';
 import '../Screens/PlayScreen.dart';
 
 class MiniPlayer extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AudioPlayerScreen(songPath: '', songTitle: '',),));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => AudioPlayerScreen(
+            songPath: '',
+            songTitle: '',
+            songList: musicList, initialIndex: 0,
+          ),
+        ));
       },
       child: Container(
         height: 75.0,
@@ -33,10 +39,11 @@ class MiniPlayer extends StatelessWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                borderRadius:BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
                   image: AssetImage('assets/img/img_1.png'),
-                  fit: BoxFit.cover, // Optional: to make the image cover the entire container
+                  fit: BoxFit
+                      .cover, // Optional: to make the image cover the entire container
                 ),
               ),
             ),

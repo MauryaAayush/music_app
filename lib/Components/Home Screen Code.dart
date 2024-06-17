@@ -9,18 +9,20 @@ import '../Providers/Audio_Player_Provider.dart';
 import '../Providers/theme_provider.dart';
 
 import '../Screens/PlayScreen.dart';
+import '../model/Image_List.dart';
 import '../model/Music_List.dart';
 import 'SliverAppBarForGeading.dart';
 import 'SliverAppBarForSearch.dart';
 import 'carousal_Column.dart';
 
 class HomeScreenCode extends StatelessWidget {
-   HomeScreenCode({
+  HomeScreenCode({
     super.key,
     required ScrollController scrollController,
     required double containerWidth,
     required this.themeProvider,
-  }) : _scrollController = scrollController, _containerWidth = containerWidth;
+  })  : _scrollController = scrollController,
+        _containerWidth = containerWidth;
 
   final ScrollController _scrollController;
   final double _containerWidth;
@@ -28,7 +30,6 @@ class HomeScreenCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final musicPlayerProvider = Provider.of<AudioPlayerProvider>(context);
     return Stack(
       children: [
@@ -48,10 +49,10 @@ class HomeScreenCode extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-
                 // Heading of type of songs
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -69,56 +70,59 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 // Add Playlist Widget here
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: CarouselSlider.builder(
-                    itemCount: musicList.length,
-                    itemBuilder: (context, index, realIndex) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AudioPlayerScreen(
-                                songPath: musicList[index],
-                                songTitle: 'Song ${index + 1}',
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 8.0),
+                    child: CarouselSlider.builder(
+                      itemCount: musicList.length,
+                      itemBuilder: (context, index, realIndex) {
+                        return GestureDetector(
+                          child: Container(
+                            margin: const EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              image: DecorationImage(
+                                image: AssetImage(imageList[index]),
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          );
-                        },
-                        child: Container(
-
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white70),
-                              color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(10)
-
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Song ${index + 1}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
+                            child: Center(
+                              child: Text(
+                                'Song ${index + 1}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      );
-                    },
-                    options: CarouselOptions(
-                      height: 200,
-                      enlargeCenterPage: true,
-                      autoPlay: true,
-                      aspectRatio: 16 / 9,
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enableInfiniteScroll: true,
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      viewportFraction: 0.8,
-                    ),
-                  )
-                ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AudioPlayerScreen(
+                                  songPath: musicList[index],
+                                  songTitle: 'Song ${index + 1}',
+                                  songList: musicList, initialIndex: index,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      options: CarouselOptions(
+                        height: 200,
+                        enlargeCenterPage: true,
+                        autoPlay: true,
+                        aspectRatio: 16 / 9,
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enableInfiniteScroll: true,
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        viewportFraction: 0.8,
+                      ),
+                    )),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -137,24 +141,24 @@ class HomeScreenCode extends StatelessWidget {
                 // Add Last Session Widgets here
 
                 CarouselSlider(
-
                     items: const [
-                  Carousal_Column(),
-                  Carousal_Column(),
-                  Carousal_Column(),
-                  Carousal_Column(),
-
-                ], options: CarouselOptions(
-                  height: 340,
-                  padEnds: false,
-                  viewportFraction:
-                  0.85, // Adjust this value for visibility from the right
-                  enableInfiniteScroll: false,
-                  autoPlay: false,
-                )),
+                      Carousal_Column(),
+                      Carousal_Column(),
+                      Carousal_Column(),
+                      Carousal_Column(),
+                    ],
+                    options: CarouselOptions(
+                      height: 340,
+                      padEnds: false,
+                      viewportFraction: 0.85,
+                      // Adjust this value for visibility from the right
+                      enableInfiniteScroll: false,
+                      autoPlay: false,
+                    )),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -173,28 +177,28 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 180,
-
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 8.0, bottom: 8),
                       child: Container(
-
                         width: 170,
                         decoration: BoxDecoration(
                             color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)
-                        ),
+                            borderRadius: BorderRadius.circular(20)),
                         // Replace with your playlist widget
                         child: Center(child: Text('Favorite Songs')),
                       ),
-                    ),),
+                    ),
+                  ),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -213,28 +217,28 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 180,
-
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 8.0, bottom: 8),
                       child: Container(
-
                         width: 170,
                         decoration: BoxDecoration(
                             color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)
-                        ),
+                            borderRadius: BorderRadius.circular(20)),
                         // Replace with your playlist widget
                         child: Center(child: Text('Favorite Songs')),
                       ),
-                    ),),
+                    ),
+                  ),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -253,28 +257,28 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 180,
-
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 8.0, bottom: 8),
                       child: Container(
-
                         width: 170,
                         decoration: BoxDecoration(
                             color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)
-                        ),
+                            borderRadius: BorderRadius.circular(20)),
                         // Replace with your playlist widget
                         child: Center(child: Text('Favorite Songs')),
                       ),
-                    ),),
+                    ),
+                  ),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -293,28 +297,29 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 180,
-
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 8.0, bottom: 8),
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.blue,
-
                         ),
                         // Replace with your playlist widget
                         child: Center(child: Text('Favorite Songs')),
                       ),
-                    ),),
+                    ),
+                  ),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -333,28 +338,29 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 180,
-
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 8.0, bottom: 8),
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.blue,
-
                         ),
                         // Replace with your playlist widget
                         child: Center(child: Text('Favorite Songs')),
                       ),
-                    ),),
+                    ),
+                  ),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -373,29 +379,28 @@ class HomeScreenCode extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 180,
-
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10.0, top: 8.0,bottom: 8),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 8.0, bottom: 8),
                       child: Container(
-
                         width: 170,
                         decoration: BoxDecoration(
                             color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)
-                        ),
+                            borderRadius: BorderRadius.circular(20)),
                         // Replace with your playlist widget
                         child: Center(child: Text('Favorite Songs')),
                       ),
-                    ),),
+                    ),
+                  ),
                 ),
 
-
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -412,52 +417,46 @@ class HomeScreenCode extends StatelessWidget {
                   ),
                 ),
                 CarouselSlider(
-
                     items: const [
                       Carousal_Column(),
                       Carousal_Column(),
                       Carousal_Column(),
                       Carousal_Column(),
-
-                    ], options: CarouselOptions(
-                  height: 340,
-                  padEnds: false,
-                  viewportFraction:
-                  0.85, // Adjust this value for visibility from the right
-                  enableInfiniteScroll: false,
-                  autoPlay: false,
-                )),
-
+                    ],
+                    options: CarouselOptions(
+                      height: 340,
+                      padEnds: false,
+                      viewportFraction: 0.85,
+                      // Adjust this value for visibility from the right
+                      enableInfiniteScroll: false,
+                      autoPlay: false,
+                    )),
               ],
             ),
           ),
         ),
         Builder(
           builder: (context) => Padding(
-            padding: const EdgeInsets.only(
-                top: 8.0, left: 4.0, right: 4.0),
+            padding: const EdgeInsets.only(top: 8.0, left: 4.0, right: 4.0),
             child: Row(
-              mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Transform.rotate(
                   angle: 22 / 7 * 2,
                   child: IconButton(
-                    icon: const Icon(
-                        Icons.horizontal_split_rounded),
+                    icon: const Icon(Icons.horizontal_split_rounded),
                     onPressed: () {
                       Scaffold.of(context).openDrawer();
                     },
-                    tooltip: MaterialLocalizations.of(context)
-                        .openAppDrawerTooltip,
+                    tooltip:
+                        MaterialLocalizations.of(context).openAppDrawerTooltip,
                   ),
                 ),
                 IconButton(
                   icon: Icon(themeProvider.isDarkMode
                       ? Icons.wb_sunny
                       : Icons.nights_stay),
-                  onPressed: () =>
-                      themeProvider.toggleTheme(),
+                  onPressed: () => themeProvider.toggleTheme(),
                 ),
               ],
             ),
@@ -467,7 +466,3 @@ class HomeScreenCode extends StatelessWidget {
     );
   }
 }
-
-
-
-
