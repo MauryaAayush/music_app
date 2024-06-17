@@ -143,7 +143,6 @@ class MusicProvider extends ChangeNotifier {
 
   void updateApiClickedSongs(String song, String songName,
       String image) {
-    // addToListIfNotPresent(songName, singer, song, playCount.toString(), image);
     mainList[1]['name'] = songName;
     mainList[1]['image'] = image;
     mainList[1]['music'] = song;
@@ -151,12 +150,6 @@ class MusicProvider extends ChangeNotifier {
     currentIndex = 1;
 
     playMusic(song,image,songName);
-    // playMusic(
-    //     playlistSongs[currentIndex].mediaUrl,
-    //     playlistSongs[currentIndex].image,
-    //     playlistSongs[currentIndex].song,
-    //     playlistSongs[currentIndex].singers);
-    // updateBackgroundColor(image);
     notifyListeners();
   }
 
