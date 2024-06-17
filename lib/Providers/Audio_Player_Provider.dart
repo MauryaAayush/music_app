@@ -25,53 +25,53 @@ final List<String> trendingSearches = [
 
 class AudioPlayerProvider extends ChangeNotifier {
 
-  late AudioPlayer _audioPlayer;
-  bool _isPlaying = false;
-  int _currentIndex = 0;
-  late List<String> musicList;
-
-  AudioPlayerProvider() {
-    _audioPlayer = AudioPlayer();
-    _initializeAudioPlayer();
-  }
-
-  Future<void> _initializeAudioPlayer() async {
-    await _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(musicList[_currentIndex])));
-    _audioPlayer.playbackEventStream.listen((event) {
-      _isPlaying = event.processingState == ProcessingState.loading;
-      notifyListeners();
-    });
-  }
-
-
-  bool get isPlaying => _isPlaying;
-  int get currentIndex => _currentIndex;
-
-  void setMusicList(List<String> list) {
-    musicList = list;
-    _initializeAudioPlayer();
-  }
-
-  Future<void> play() async {
-    await _audioPlayer.play();
-  }
-
-  Future<void> pause() async {
-    await _audioPlayer.pause();
-  }
-
-  Future<void> stop() async {
-    await _audioPlayer.stop();
-  }
-
-  void seek(Duration position) {
-    _audioPlayer.seek(position);
-  }
-
-  void changeTrack(int index) {
-    _currentIndex = index;
-    _initializeAudioPlayer();
-  }
+  // late AudioPlayer _audioPlayer;
+  // bool _isPlaying = false;
+  // int _currentIndex = 0;
+  // late List<String> musicList;
+  //
+  // AudioPlayerProvider() {
+  //   _audioPlayer = AudioPlayer();
+  //   _initializeAudioPlayer();
+  // }
+  //
+  // Future<void> _initializeAudioPlayer() async {
+  //   await _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(musicList[_currentIndex])));
+  //   _audioPlayer.playbackEventStream.listen((event) {
+  //     _isPlaying = event.processingState == ProcessingState.loading;
+  //     notifyListeners();
+  //   });
+  // }
+  //
+  //
+  // bool get isPlaying => _isPlaying;
+  // int get currentIndex => _currentIndex;
+  //
+  // void setMusicList(List<String> list) {
+  //   musicList = list;
+  //   _initializeAudioPlayer();
+  // }
+  //
+  // Future<void> play() async {
+  //   await _audioPlayer.play();
+  // }
+  //
+  // Future<void> pause() async {
+  //   await _audioPlayer.pause();
+  // }
+  //
+  // Future<void> stop() async {
+  //   await _audioPlayer.stop();
+  // }
+  //
+  // void seek(Duration position) {
+  //   _audioPlayer.seek(position);
+  // }
+  //
+  // void changeTrack(int index) {
+  //   _currentIndex = index;
+  //   _initializeAudioPlayer();
+  // }
 
 
   //
