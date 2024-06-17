@@ -66,8 +66,8 @@ class AudioPlayerScreen extends StatelessWidget {
         
                 Spacer(),
                 Container(
-                  height: 300,
-                  width: 300,
+                  height: 310,
+                  width: 310,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
