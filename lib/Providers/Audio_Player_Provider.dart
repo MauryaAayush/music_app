@@ -128,11 +128,7 @@ class MusicProvider extends ChangeNotifier {
     },
   ];
 
-  // Stream<bool> get isPlaying => assetsAudioPlayer.isPlaying;
-  //
-  // Duration currentPosition = Duration.zero;
-  // Duration totalDuration = Duration.zero;
-  // int currentIndex = 0;
+
 
   SongService _songService = SongService();
   List<Song> songs = [];
