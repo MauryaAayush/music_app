@@ -37,17 +37,19 @@ class MusicProvider extends ChangeNotifier {
 
   List mainList = [
     {
-      'image':  "https://c.saavncdn.com/artists/Mohit_Chauhan_500x500.jpg",
+      'image': "https://c.saavncdn.com/artists/Mohit_Chauhan_500x500.jpg",
       'music': 'assets/Music/song1.mp3',
       'name': 'Aaya fir vo najar ese'
     },
     {
-      'image': "https://c.saavncdn.com/artists/Gaurav_Dagaonkar_20191216113105_500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/artists/Gaurav_Dagaonkar_20191216113105_500x500.jpg",
       'music': 'assets/Music/song2.mp3',
       'name': "Main Dhoondne Ko Zamaane"
     },
     {
-      'image':  "https://c.saavncdn.com/artists/Parampara_Thakur_20191130070743_500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/artists/Parampara_Thakur_20191130070743_500x500.jpg",
       'music': 'assets/Music/song3.mp3',
       'name': 'Dil ke Pass '
     },
@@ -57,22 +59,26 @@ class MusicProvider extends ChangeNotifier {
       'name': 'Jo  tu mera hamdarad hai'
     },
     {
-      'image':  "https://c.saavncdn.com/artists/Amarjeet_Jaikar_000_20230315131159_500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/artists/Amarjeet_Jaikar_000_20230315131159_500x500.jpg",
       'music': 'assets/Music/song5.mp3',
       'name': 'Teri Galliya'
     },
     {
-      'image': "https://c.saavncdn.com/945/Hasi-Ban-Gaye-Hindi-2023-20230608172234-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/945/Hasi-Ban-Gaye-Hindi-2023-20230608172234-500x500.jpg",
       'music': 'assets/Music/song6.mp3',
       'name': 'Hasi ban gae'
     },
     {
-      'image': "https://c.saavncdn.com/135/Aam-Jahe-Munde-Punjabi-2020-20240424043015-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/135/Aam-Jahe-Munde-Punjabi-2020-20240424043015-500x500.jpg",
       'music': 'assets/Music/song7.mp3',
       'name': 'Aam jehe munde'
     },
     {
-      'image': "https://c.saavncdn.com/252/Laapataa-Ladies-Hindi-2024-20240213151004-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/252/Laapataa-Ladies-Hindi-2024-20240213151004-500x500.jpg",
       'music': 'assets/Music/song8.mp3',
       'name': 'One Love'
     },
@@ -82,22 +88,25 @@ class MusicProvider extends ChangeNotifier {
       'name': 'Tukur Tukur'
     },
     {
-      'image':  "https://c.saavncdn.com/821/Dilwale-Hindi-2015-500x500.jpg",
+      'image': "https://c.saavncdn.com/821/Dilwale-Hindi-2015-500x500.jpg",
       'music': 'assets/Music/song10.mp3',
       'name': 'Man ma Emotion'
     },
     {
-      'image': "https://c.saavncdn.com/888/Forever-2-Hindi-2012-20190924060933-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/888/Forever-2-Hindi-2012-20190924060933-500x500.jpg",
       'music': 'assets/Music/song11.mp3',
       'name': 'Keh du tumhe'
     },
     {
-      'image': "https://c.saavncdn.com/994/Genius-Hindi-2018-20240408213802-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/994/Genius-Hindi-2018-20240408213802-500x500.jpg",
       'music': 'assets/Music/song12.mp3',
       'name': 'Dill meri Na sune'
     },
     {
-      'image':  "https://c.saavncdn.com/994/Genius-Hindi-2018-20240408213802-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/994/Genius-Hindi-2018-20240408213802-500x500.jpg",
       'music': 'assets/Music/song13.mp3',
       'name': 'Tera Fitoor'
     },
@@ -107,28 +116,30 @@ class MusicProvider extends ChangeNotifier {
       'name': 'Rabba Rabba'
     },
     {
-      'image':  "https://c.saavncdn.com/092/ANIMAL-Hindi-2023-20231124191036-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/092/ANIMAL-Hindi-2023-20231124191036-500x500.jpg",
       'music': 'assets/Music/song15.mp3',
       'name': 'Arjan vally'
     },
     {
-      'image': "https://c.saavncdn.com/352/Saari-Duniya-Jalaa-Denge-Extended-Film-Version-From-ANIMAL-Hindi-2023-20231222191004-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/352/Saari-Duniya-Jalaa-Denge-Extended-Film-Version-From-ANIMAL-Hindi-2023-20231222191004-500x500.jpg",
       'music': 'assets/Music/song16.mp3',
       'name': 'Saari Duniya jalaa denge'
     },
     {
-      'image': "https://c.saavncdn.com/624/Abrar-s-Entry-Jamal-Kudu-From-ANIMAL-Hindi-2023-20231206121002-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/624/Abrar-s-Entry-Jamal-Kudu-From-ANIMAL-Hindi-2023-20231206121002-500x500.jpg",
       'music': 'assets/Music/song17.mp3',
       'name': 'Jabal jabal'
     },
     {
-      'image': "https://c.saavncdn.com/418/Batti-Gul-Meter-Chalu-Hindi-2018-20180908134024-500x500.jpg",
+      'image':
+          "https://c.saavncdn.com/418/Batti-Gul-Meter-Chalu-Hindi-2018-20180908134024-500x500.jpg",
       'music': 'assets/Music/song18.mp3',
       'name': 'Dekhte Dekhte'
     },
   ];
-
-
 
   SongService _songService = SongService();
   List<Song> songs = [];
@@ -136,24 +147,22 @@ class MusicProvider extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
-
-  void updateApiClickedSongs(String song, String songName,
-      String image) {
+  void updateApiClickedSongs(String song, String songName, String image) {
     mainList[1]['name'] = songName;
     mainList[1]['image'] = image;
     mainList[1]['music'] = song;
 
     currentIndex = 1;
 
-    playMusic(song,image,songName);
+    playMusic(song, image, songName);
     notifyListeners();
   }
 
-  Future<void> playMusic(
-      String link, String imageUrl, String title) async {
+  Future<void> playMusic(String link, String imageUrl, String title) async {
     try {
       await assetsAudioPlayer.open(
-        Audio.network(  link,
+        Audio.network(
+          link,
           metas: Metas(
             title: title,
             image: MetasImage.network(imageUrl),
@@ -190,7 +199,6 @@ class MusicProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
   void toggleFavorite() {
     _isFavorited = !_isFavorited;
     notifyListeners();
@@ -205,14 +213,13 @@ class MusicProvider extends ChangeNotifier {
           title: songList[currentIndex]['title'],
           artist: songList[currentIndex]['artist'],
           album: songList[currentIndex]['album'],
-          image: MetasImage.network(songList[currentIndex]['image']), // Add image here
+          image: MetasImage.network(
+              songList[currentIndex]['image']), // Add image here
         ),
       ),
       autoStart: true,
       showNotification: true,
     );
-
-
 
     assetsAudioPlayer.currentPosition.listen((duration) {
       currentPosition = duration;
@@ -270,4 +277,3 @@ class MusicProvider extends ChangeNotifier {
     ].map(twoDigits).join(':');
   }
 }
-
