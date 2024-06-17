@@ -7,7 +7,8 @@ class AudioPlayerScreen extends StatelessWidget {
   final List songList;
   final int initialIndex;
 
-  const AudioPlayerScreen({super.key,
+  const AudioPlayerScreen({
+    super.key,
     required this.songList,
     required this.initialIndex,
   });
@@ -50,14 +51,20 @@ class AudioPlayerScreen extends StatelessWidget {
                 height: 300,
                 width: 300,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                         image: NetworkImage(musicProviderTrue
-                                .mainList[musicProviderTrue.currentIndex]
-                            ['image']),fit: BoxFit.cover
-                    )
-                ),
+                            .mainList[musicProviderTrue.currentIndex]['image']),
+                        fit: BoxFit.cover)),
               ),
+              Spacer(),
+
+              Text(musicProviderTrue
+                  .mainList[musicProviderTrue.currentIndex]['name'],style: TextStyle(
+                  fontSize: 30
+              ),),
+              Text('T-series'),
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: SliderTheme(
@@ -99,12 +106,14 @@ class AudioPlayerScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  IconButton(onPressed: () {}, icon: Icon(Icons.shuffle)),
                   IconButton(
-                    icon: Icon(Icons.skip_previous),
-                    iconSize: 30,
+                    icon: Icon(Icons.skip_previous_rounded),
+                    iconSize: 45,
                     onPressed: () => musicProviderfalse
                         .previousSong(musicProviderfalse.mainList),
                   ),
@@ -113,19 +122,49 @@ class AudioPlayerScreen extends StatelessWidget {
                     builder: (context, asyncSnapshot) {
                       final bool isPlaying = asyncSnapshot.data ?? false;
                       return IconButton(
-                        icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
-                        iconSize: 30,
+                        icon: Icon(isPlaying
+                            ? Icons.pause_circle_filled
+                            : Icons.play_circle_fill),
+                        iconSize: 75,
                         onPressed: musicProviderfalse.playPause,
                       );
                     },
                   ),
                   IconButton(
-                    icon: Icon(Icons.skip_next),
-                    iconSize: 30,
+                    icon: Icon(Icons.skip_next_rounded),
+                    iconSize: 45,
                     onPressed: () => musicProviderfalse
                         .nextSong(musicProviderfalse.mainList),
                   ),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.repeat)),
                 ],
+              ),
+              Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "UP NEXT",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      )),
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "LYRICS",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      )),
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "RELATED",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      )),
+                ],
+              ),
+              SizedBox(
+                height: 20,
               ),
             ],
           ),
