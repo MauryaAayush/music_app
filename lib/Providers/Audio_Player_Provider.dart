@@ -37,92 +37,92 @@ class MusicProvider extends ChangeNotifier {
 
   List mainList = [
     {
-      'image': 'assets/images/image1.jpg',
+      'image':  "https://c.saavncdn.com/artists/Mohit_Chauhan_500x500.jpg",
       'music': 'assets/Music/song1.mp3',
       'name': 'Aaya fir vo najar ese'
     },
     {
-      'image': 'assets/images/image2.jpg',
+      'image': "https://c.saavncdn.com/artists/Gaurav_Dagaonkar_20191216113105_500x500.jpg",
       'music': 'assets/Music/song2.mp3',
       'name': "Main Dhoondne Ko Zamaane"
     },
     {
-      'image': 'assets/images/image3.jpg',
+      'image':  "https://c.saavncdn.com/artists/Parampara_Thakur_20191130070743_500x500.jpg",
       'music': 'assets/Music/song3.mp3',
       'name': 'Dil ke Pass '
     },
     {
-      'image': 'assets/images/image4.jpg',
+      'image': "https://c.saavncdn.com/151/Ek-Villain-Hindi-2014-500x500.jpg",
       'music': 'assets/Music/song4.mp3',
       'name': 'Jo  tu mera hamdarad hai'
     },
     {
-      'image': 'assets/images/image5.jpg',
+      'image':  "https://c.saavncdn.com/artists/Amarjeet_Jaikar_000_20230315131159_500x500.jpg",
       'music': 'assets/Music/song5.mp3',
       'name': 'Teri Galliya'
     },
     {
-      'image': 'assets/images/image6.jpg',
+      'image': "https://c.saavncdn.com/945/Hasi-Ban-Gaye-Hindi-2023-20230608172234-500x500.jpg",
       'music': 'assets/Music/song6.mp3',
       'name': 'Hasi ban gae'
     },
     {
-      'image': 'assets/images/image7.jpg',
+      'image': "https://c.saavncdn.com/135/Aam-Jahe-Munde-Punjabi-2020-20240424043015-500x500.jpg",
       'music': 'assets/Music/song7.mp3',
       'name': 'Aam jehe munde'
     },
     {
-      'image': 'assets/images/image8.jpg',
+      'image': "https://c.saavncdn.com/252/Laapataa-Ladies-Hindi-2024-20240213151004-500x500.jpg",
       'music': 'assets/Music/song8.mp3',
       'name': 'One Love'
     },
     {
-      'image': 'assets/images/image9.jpg',
+      'image': "https://c.saavncdn.com/821/Dilwale-Hindi-2015-500x500.jpg",
       'music': 'assets/Music/song9.mp3',
       'name': 'Tukur Tukur'
     },
     {
-      'image': 'assets/images/image10.jpg',
+      'image':  "https://c.saavncdn.com/821/Dilwale-Hindi-2015-500x500.jpg",
       'music': 'assets/Music/song10.mp3',
       'name': 'Man ma Emotion'
     },
     {
-      'image': 'assets/images/image11.jpg',
+      'image': "https://c.saavncdn.com/888/Forever-2-Hindi-2012-20190924060933-500x500.jpg",
       'music': 'assets/Music/song11.mp3',
       'name': 'Keh du tumhe'
     },
     {
-      'image': 'assets/images/image12.jpg',
+      'image': "https://c.saavncdn.com/994/Genius-Hindi-2018-20240408213802-500x500.jpg",
       'music': 'assets/Music/song12.mp3',
       'name': 'Dill meri Na sune'
     },
     {
-      'image': 'assets/images/image13.jpg',
+      'image':  "https://c.saavncdn.com/994/Genius-Hindi-2018-20240408213802-500x500.jpg",
       'music': 'assets/Music/song13.mp3',
       'name': 'Tera Fitoor'
     },
     {
-      'image': 'assets/images/image14.jpg',
+      'image': "https://c.saavncdn.com/930/Heropanti-2014-500x500.jpg",
       'music': 'assets/Music/song14.mp3',
       'name': 'Rabba Rabba'
     },
     {
-      'image': 'assets/images/image15.jpg',
+      'image':  "https://c.saavncdn.com/092/ANIMAL-Hindi-2023-20231124191036-500x500.jpg",
       'music': 'assets/Music/song15.mp3',
       'name': 'Arjan vally'
     },
     {
-      'image': 'assets/images/image16.jpg',
+      'image': "https://c.saavncdn.com/352/Saari-Duniya-Jalaa-Denge-Extended-Film-Version-From-ANIMAL-Hindi-2023-20231222191004-500x500.jpg",
       'music': 'assets/Music/song16.mp3',
-      'name': 'Saari Duniya jala dege'
+      'name': 'Saari Duniya jalaa denge'
     },
     {
-      'image': 'assets/images/image17.jpg',
+      'image': "https://c.saavncdn.com/624/Abrar-s-Entry-Jamal-Kudu-From-ANIMAL-Hindi-2023-20231206121002-500x500.jpg",
       'music': 'assets/Music/song17.mp3',
       'name': 'Jabal jabal'
     },
     {
-      'image': 'assets/images/image18.jpg',
+      'image': "https://c.saavncdn.com/418/Batti-Gul-Meter-Chalu-Hindi-2018-20180908134024-500x500.jpg",
       'music': 'assets/Music/song18.mp3',
       'name': 'Dekhte Dekhte'
     },

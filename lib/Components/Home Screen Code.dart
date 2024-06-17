@@ -78,7 +78,7 @@ class HomeScreenCode extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
                               image: DecorationImage(
-                                image: AssetImage(musicProviderfalse.mainList[index]['image']),
+                                image: NetworkImage(musicProviderfalse.mainList[index]['image']),
                                 fit: BoxFit.cover,
                               ),
                             ),
