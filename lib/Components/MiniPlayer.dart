@@ -92,17 +92,17 @@ class MiniPlayer extends StatelessWidget {
                     .previousSong(musicProviderfalse.mainList);
               },
             ),
-        Consumer<MusicProvider>(
-          builder: (context, musicProvider, child) {
-            return IconButton(
-              icon: Icon(
-              // musicProvider.isPlaying ? Icons.pause :
-                Icons.play_arrow),
-              iconSize: 30,
-              onPressed: musicProvider.playPause,
-            );
-          },
-        ),
+            StreamBuilder(
+              stream: musicProvider.assetsAudioPlayer.isPlaying,
+              builder: (context, asyncSnapshot) {
+                final bool isPlaying = asyncSnapshot.data ?? false;
+                return IconButton(
+                  icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+                  iconSize: 30,
+                  onPressed: musicProviderfalse.playPause,
+                );
+              },
+            ),
             IconButton(
               icon: Icon(Icons.skip_next),
               onPressed: () {
