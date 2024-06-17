@@ -13,6 +13,7 @@ class MiniPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final musicProvider = Provider.of<MusicProvider>(context);
+
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
@@ -90,12 +91,17 @@ class MiniPlayer extends StatelessWidget {
                     .previousSong(musicList);
               },
             ),
-            IconButton(
-              icon: Icon(Icons.play_arrow),
-              onPressed: () {
-                Provider.of<MusicProvider>(context, listen: false).playPause();
-              },
-            ),
+        Consumer<MusicProvider>(
+          builder: (context, musicProvider, child) {
+            return IconButton(
+              icon: Icon(
+              // musicProvider.isPlaying ? Icons.pause :
+                Icons.play_arrow),
+              iconSize: 30,
+              onPressed: musicProvider.playPause,
+            );
+          },
+        ),
             IconButton(
               icon: Icon(Icons.skip_next),
               onPressed: () {

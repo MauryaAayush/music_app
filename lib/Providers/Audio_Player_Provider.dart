@@ -71,6 +71,8 @@ class MusicProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+
+
   void openSong(List<String> songList, int index) {
     currentIndex = index;
     assetsAudioPlayer.open(

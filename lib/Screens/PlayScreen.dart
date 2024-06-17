@@ -27,7 +27,7 @@ class AudioPlayerScreen extends StatelessWidget {
           },
           icon: Icon(Icons.keyboard_arrow_down),
         ),
-        // title: Text('Song ${audioPlayerProvider.currentIndex + 1}'),
+        title: Text('Song ${musicProviderTrue.currentIndex + 1}'),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -44,16 +44,6 @@ class AudioPlayerScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-
-              // IconButton(onPressed: () {
-              //
-              //   musicProvider.playPause();
-              //
-              // }, icon: Icon(Icons.play_arrow)),
-              //
-              // IconButton(onPressed: () {
-              //   musicProvider.nextSong(musicProviderTrue.currentIndex++);
-              // }, icon: Icon(Icons.next_week_rounded))
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
