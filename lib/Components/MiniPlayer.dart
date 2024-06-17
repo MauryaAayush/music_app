@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_app/Providers/Audio_Player_Provider.dart';
 import 'package:music_app/model/Music_List.dart';
 import 'package:provider/provider.dart';
 
@@ -11,13 +12,13 @@ class MiniPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final musicProvider = Provider.of<MusicProvider>(context);
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => AudioPlayerScreen(
-
-
-            songList: musicList, initialIndex: 0,
+            songList: musicList,
+            initialIndex: 0,
           ),
         ));
       },
@@ -72,16 +73,35 @@ class MiniPlayer extends StatelessWidget {
               ),
             ),
             IconButton(
-              icon: Icon(Icons.favorite_border),
-              onPressed: () {},
+              icon: Icon(
+                musicProvider.isFavorited
+                    ? Icons.favorite
+                    : Icons.favorite_border,
+                color: musicProvider.isFavorited ? Colors.red : Colors.grey,
+              ),
+              onPressed: () {
+                musicProvider.toggleFavorite();
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.skip_previous),
+              onPressed: () {
+                Provider.of<MusicProvider>(context, listen: false)
+                    .previousSong(musicList);
+              },
             ),
             IconButton(
               icon: Icon(Icons.play_arrow),
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<MusicProvider>(context, listen: false).playPause();
+              },
             ),
             IconButton(
               icon: Icon(Icons.skip_next),
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<MusicProvider>(context, listen: false)
+                    .nextSong(musicList);
+              },
             ),
           ],
         ),

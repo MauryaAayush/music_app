@@ -61,6 +61,16 @@ class MusicProvider extends ChangeNotifier {
   //
   // }
 
+
+  bool _isFavorited = false;
+
+  bool get isFavorited => _isFavorited;
+
+  void toggleFavorite() {
+    _isFavorited = !_isFavorited;
+    notifyListeners();
+  }
+
   void openSong(List<String> songList, int index) {
     currentIndex = index;
     assetsAudioPlayer.open(
