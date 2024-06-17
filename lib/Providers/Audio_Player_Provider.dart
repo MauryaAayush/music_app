@@ -44,7 +44,7 @@ class MusicProvider extends ChangeNotifier {
     {
       'image': 'assets/images/image2.jpg',
       'music': 'assets/Music/song2.mp3',
-      'name': "Main Dhoondne Ko Zamaane Mein"
+      'name': "Main Dhoondne Ko Zamaane"
     },
     {
       'image': 'assets/images/image3.jpg',
@@ -128,6 +128,81 @@ class MusicProvider extends ChangeNotifier {
     },
   ];
 
+  // Stream<bool> get isPlaying => assetsAudioPlayer.isPlaying;
+  //
+  // Duration currentPosition = Duration.zero;
+  // Duration totalDuration = Duration.zero;
+  // int currentIndex = 0;
+
+  SongService _songService = SongService();
+  List<Song> songs = [];
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
+
+  void updateApiClickedSongs(String song, String songName,
+      String image) {
+    // addToListIfNotPresent(songName, singer, song, playCount.toString(), image);
+    mainList[1]['name'] = songName;
+    mainList[1]['image'] = image;
+    mainList[1]['music'] = song;
+
+    currentIndex = 1;
+
+    playMusic(song,image,songName);
+    // playMusic(
+    //     playlistSongs[currentIndex].mediaUrl,
+    //     playlistSongs[currentIndex].image,
+    //     playlistSongs[currentIndex].song,
+    //     playlistSongs[currentIndex].singers);
+    // updateBackgroundColor(image);
+    notifyListeners();
+  }
+
+  Future<void> playMusic(
+      String link, String imageUrl, String title) async {
+    try {
+      await assetsAudioPlayer.open(
+        Audio.network(
+          link,
+          metas: Metas(
+            title: title,
+            image: MetasImage.network(imageUrl),
+          ),
+        ),
+        showNotification: true,
+        loopMode: LoopMode.none,
+      );
+    } catch (t) {
+      //mp3 unreachable
+      print(t);
+    }
+  }
+
+  void searchSongs(String query) async {
+    _isLoading = true;
+    notifyListeners();
+    try {
+      List<Song> songs = await _songService.searchSongs(query);
+
+      this.songs = songs;
+      notifyListeners();
+    } catch (e) {
+      print('Error searching songs: $e');
+      // Handle error
+    }
+    _isLoading = false;
+
+    notifyListeners();
+  }
+
+  void removeRecentSearch(String search) {
+    recentSearches.remove(search);
+    notifyListeners();
+  }
+
+
   void toggleFavorite() {
     _isFavorited = !_isFavorited;
     notifyListeners();
@@ -140,6 +215,12 @@ class MusicProvider extends ChangeNotifier {
       autoStart: true,
       showNotification: true,
     );
+
+
+
+
+
+
 
     assetsAudioPlayer.currentPosition.listen((duration) {
       currentPosition = duration;
@@ -198,40 +279,3 @@ class MusicProvider extends ChangeNotifier {
   }
 }
 
-class AudioPlayerProvider extends ChangeNotifier {
-  final AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
-
-  Stream<bool> get isPlaying => assetsAudioPlayer.isPlaying;
-
-  Duration currentPosition = Duration.zero;
-  Duration totalDuration = Duration.zero;
-  int currentIndex = 0;
-
-  SongService _songService = SongService();
-  List<Song> songs = [];
-  bool _isLoading = false;
-
-  bool get isLoading => _isLoading;
-
-  void searchSongs(String query) async {
-    _isLoading = true;
-    notifyListeners();
-    try {
-      List<Song> songs = await _songService.searchSongs(query);
-
-      this.songs = songs;
-      notifyListeners();
-    } catch (e) {
-      print('Error searching songs: $e');
-      // Handle error
-    }
-    _isLoading = false;
-
-    notifyListeners();
-  }
-
-  void removeRecentSearch(String search) {
-    recentSearches.remove(search);
-    notifyListeners();
-  }
-}

@@ -19,10 +19,10 @@ void main() {
           create: (context) => MusicProvider(),
           // builder: (context,child)=> AudioPlayerScreen(songList: musicList, initialIndex: 0),
         ),
-        ChangeNotifierProvider(
-          create: (context) => AudioPlayerProvider(),
-          // builder: (context,child)=> AudioPlayerScreen(songList: musicList, initialIndex: 0),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (context) => AudioPlayerProvider(),
+        //   // builder: (context,child)=> AudioPlayerScreen(songList: musicList, initialIndex: 0),
+        // ),
       ],
       builder: (context, child) => const MusicApp(),
     ),

@@ -44,7 +44,7 @@ class MiniPlayer extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage(musicProvider.mainList[musicProvider.currentIndex]['image']),
+                  image: NetworkImage(musicProvider.mainList[musicProvider.currentIndex]['image']),
                   fit: BoxFit
                       .cover, // Optional: to make the image cover the entire container
                 ),
@@ -59,6 +59,7 @@ class MiniPlayer extends StatelessWidget {
                   children: [
                     Text(
                       musicProvider.mainList[musicProvider.currentIndex]['name'],
+                      overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,

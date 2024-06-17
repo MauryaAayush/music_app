@@ -26,7 +26,6 @@ class HomeScreenCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final musicPlayerProvider = Provider.of<AudioPlayerProvider>(context);
     final musicProviderfalse = Provider.of<MusicProvider>(context,listen: false);
 
     return Stack(

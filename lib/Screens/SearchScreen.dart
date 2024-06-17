@@ -60,25 +60,26 @@ class _SearchScreenState extends State<SearchScreen> {
                   TextField(
                     controller: _searchController,
                     onSubmitted: (value) {
-                      Provider.of<AudioPlayerProvider>(context, listen: false)
-                          .searchSongs(value);
-            
+                      Provider.of<MusicProvider>(context, listen: false).searchSongs(value);
+
                       if (value.isNotEmpty) {
                         setState(() {
                           recentSearches.add(value);
-                          _searchController
-                              .clear(); // Clear the text field after submission
+                          _searchController.clear(); // Clear the text field after submission
                         });
                       }
                     },
                     decoration: InputDecoration(
                       hintText: 'Songs, albums or artists',
-                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.search), // Add search icon here
+                      border: OutlineInputBorder(), // Add outline border here
                     ),
                   ),
-            
-            
-                  Consumer<AudioPlayerProvider>(
+
+
+
+
+                  Consumer<MusicProvider>(
                       builder: (context, provider, child) {
                     if (provider.isLoading) {
                       return Center(
@@ -98,11 +99,11 @@ class _SearchScreenState extends State<SearchScreen> {
                     return ListView.builder(
                         shrinkWrap: true,
                         itemCount:
-                            Provider.of<AudioPlayerProvider>(context, listen: true)
+                            Provider.of<MusicProvider>(context, listen: true)
                                 .songs
                                 .length,
                         itemBuilder: (context, index) {
-                          Song song = Provider.of<AudioPlayerProvider>(context,
+                          Song song = Provider.of<MusicProvider>(context,
                                   listen: true)
                               .songs[index];
                           return ListTile(
@@ -112,14 +113,17 @@ class _SearchScreenState extends State<SearchScreen> {
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       fit: BoxFit.cover,
-                                      image: NetworkImage(song.allArtists[index].images[index].url)),
+                                      image: NetworkImage(song.imageUrl)),
                                   borderRadius: BorderRadius.circular(10)),
                             ),
-                            title: Text(song.allArtists[index].name, style: TextStyle(fontSize: 20)),
+                            title: Text(song.title, style: TextStyle(fontSize: 20)),
                             subtitle: Text(
-                              song.allArtists[index].name,
+                              song.singer,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
+                            onTap: () {
+                              provider.updateApiClickedSongs(song.songUrl, song.title, song.imageUrl);
+                            },
                           );
                         });
                   }),
