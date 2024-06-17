@@ -15,8 +15,9 @@ void main() {
       ChangeNotifierProvider(
         create: (context) => PageProvider(),
       ),
-      ChangeNotifierProvider(create: (_) => AudioPlayerProvider())
-
+      ChangeNotifierProvider<AudioPlayerProvider>(
+        create: (_) => AudioPlayerProvider(),
+      ),
     ], child: const MusicApp()),
   );
 }

@@ -87,7 +87,7 @@ class AudioPlayerScreen extends StatelessWidget {
                     onPressed: () => audioPlayerProvider.previousSong(songList),
                   ),
                   StreamBuilder(
-                    stream: audioPlayerProvider.isPlaying,
+                    stream: audioPlayerProvider.assetsAudioPlayer.isPlaying,
                     builder: (context, asyncSnapshot) {
                       final bool isPlaying = asyncSnapshot.data ?? false;
                       return IconButton(
