@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/Providers/Audio_Player_Provider.dart';
 import 'package:provider/provider.dart';
 import '../Providers/theme_provider.dart';
-import '../Providers/audio_player_provider.dart';
 
 class AudioPlayerScreen extends StatelessWidget {
   final List<String> songList;
@@ -15,8 +15,9 @@ class AudioPlayerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-    final audioPlayerProvider = Provider.of<AudioPlayerProvider>(context);
-
+    // AudioPlayerProvider audioPlayerProvider = Provider.of<AudioPlayerProvider>(context,listen: false);
+    final musicProvider = Provider.of<MusicProvider>(context, listen: false);
+    final musicProviderTrue = Provider.of<MusicProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -26,7 +27,7 @@ class AudioPlayerScreen extends StatelessWidget {
           },
           icon: Icon(Icons.keyboard_arrow_down),
         ),
-        title: Text('Song ${audioPlayerProvider.currentIndex + 1}'),
+        // title: Text('Song ${audioPlayerProvider.currentIndex + 1}'),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -43,6 +44,17 @@ class AudioPlayerScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+
+              // IconButton(onPressed: () {
+              //
+              //   musicProvider.playPause();
+              //
+              // }, icon: Icon(Icons.play_arrow)),
+              //
+              // IconButton(onPressed: () {
+              //   musicProvider.nextSong(musicProviderTrue.currentIndex++);
+              // }, icon: Icon(Icons.next_week_rounded))
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: SliderTheme(
@@ -53,13 +65,14 @@ class AudioPlayerScreen extends StatelessWidget {
                     thumbShape: RoundSliderThumbShape(enabledThumbRadius: 7.0),
                   ),
                   child: Slider(
-                    value: audioPlayerProvider.currentPosition.inMilliseconds.toDouble(),
+                    value: musicProvider.currentPosition.inMilliseconds
+                        .toDouble(),
                     min: 0.0,
-                    max: audioPlayerProvider.totalDuration.inMilliseconds.toDouble(),
+                    max: musicProvider.totalDuration.inMilliseconds.toDouble(),
                     activeColor: Colors.white,
                     inactiveColor: Colors.grey.shade700,
                     onChanged: (value) {
-                      audioPlayerProvider.seek(Duration(milliseconds: value.toInt()));
+                      musicProvider.seek(Duration(milliseconds: value.toInt()));
                     },
                   ),
                 ),
@@ -69,11 +82,18 @@ class AudioPlayerScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(audioPlayerProvider.formatDuration(audioPlayerProvider.currentPosition),
-                        style: Theme.of(context).textTheme.labelSmall),
+                    Text(musicProvider.formatDuration(
+                        musicProvider.currentPosition),
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .labelSmall),
                     Text(
-                      audioPlayerProvider.formatDuration(audioPlayerProvider.totalDuration),
-                      style: Theme.of(context).textTheme.labelSmall,
+                      musicProvider.formatDuration(musicProvider.totalDuration),
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .labelSmall,
                     ),
                   ],
                 ),
@@ -84,23 +104,23 @@ class AudioPlayerScreen extends StatelessWidget {
                   IconButton(
                     icon: Icon(Icons.skip_previous),
                     iconSize: 30,
-                    onPressed: () => audioPlayerProvider.previousSong(songList),
+                    onPressed: () => musicProvider.previousSong(songList),
                   ),
                   StreamBuilder(
-                    stream: audioPlayerProvider.assetsAudioPlayer.isPlaying,
+                    stream: musicProvider.assetsAudioPlayer.isPlaying,
                     builder: (context, asyncSnapshot) {
                       final bool isPlaying = asyncSnapshot.data ?? false;
                       return IconButton(
                         icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                         iconSize: 30,
-                        onPressed: audioPlayerProvider.playPause,
+                        onPressed: musicProvider.playPause,
                       );
                     },
                   ),
                   IconButton(
                     icon: Icon(Icons.skip_next),
                     iconSize: 30,
-                    onPressed: () => audioPlayerProvider.nextSong(songList),
+                    onPressed: () => musicProvider.nextSong(songList),
                   ),
                 ],
               ),

@@ -16,6 +16,7 @@ class MiniPlayer extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => AudioPlayerScreen(
 
+
             songList: musicList, initialIndex: 0,
           ),
         ));

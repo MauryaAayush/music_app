@@ -19,3 +19,12 @@ final List<String> imageList = [
   'assets/images/image17.jpg',
   'assets/images/image18.jpg',
 ];
+
+
+List<String> imagePaths = [
+  'assets/ARrehman.jpeg',
+  'assets/arijit.jpeg',
+  'assets/jubin.jpeg',
+  'assets/siddhu.jpeg',
+  'assets/subh.jpeg',
+];

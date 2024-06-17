@@ -31,6 +31,8 @@ class HomeScreenCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final musicPlayerProvider = Provider.of<AudioPlayerProvider>(context);
+    final musicProvider = Provider.of<MusicProvider>(context,listen: false);
+
     return Stack(
       children: [
         NestedScrollView(
@@ -106,6 +108,9 @@ class HomeScreenCode extends StatelessWidget {
                                 ),
                               ),
                             );
+                            musicProvider.openSong(musicList,index);
+                            // Navigator.of(context).pushNamed('/play');
+
                           },
                         );
                       },
@@ -187,10 +192,16 @@ class HomeScreenCode extends StatelessWidget {
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)),
-                        // Replace with your playlist widget
-                        child: Center(child: Text('Favorite Songs')),
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            image: AssetImage('assets/trending.jpg'), // Replace 'your_image.jpg' with your image path
+                            fit: BoxFit.cover, // Adjust the fit as needed
+                          ),
+                        ),
+                        child: Center(
+                          child: Text('Favorite Songs'),
+                        ),
                       ),
                     ),
                   ),
@@ -227,11 +238,18 @@ class HomeScreenCode extends StatelessWidget {
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)),
-                        // Replace with your playlist widget
-                        child: Center(child: Text('Favorite Songs')),
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            image: AssetImage('assets/trend.jpg'), // Replace 'your_image.jpg' with your image path
+                            fit: BoxFit.cover, // Adjust the fit as needed
+                          ),
+                        ),
+                        child: Center(
+                          child: Text('Favorite Songs'),
+                        ),
                       ),
+
                     ),
                   ),
                 ),
@@ -341,18 +359,16 @@ class HomeScreenCode extends StatelessWidget {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
-                    itemCount: 5,
+                    itemCount: imagePaths.length,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(
-                          left: 10.0, top: 8.0, bottom: 8),
+                      padding: const EdgeInsets.only(left: 10.0, top: 8.0, bottom: 8.0),
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage(imagePaths[index]),fit: BoxFit.cover),
                           shape: BoxShape.circle,
                           color: Colors.blue,
                         ),
-                        // Replace with your playlist widget
-                        child: Center(child: Text('Favorite Songs')),
                       ),
                     ),
                   ),
