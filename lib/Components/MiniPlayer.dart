@@ -2,14 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/Providers/Audio_Player_Provider.dart';
-import 'package:music_app/model/Music_List.dart';
 import 'package:provider/provider.dart';
-
 import '../Providers/theme_provider.dart';
 import '../Screens/PlayScreen.dart';
-import '../model/Main_List.dart';
 
 class MiniPlayer extends StatelessWidget {
+  const MiniPlayer({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
