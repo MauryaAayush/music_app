@@ -43,7 +43,7 @@ class MiniPlayer extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/img/img_1.png'),
+                  image: AssetImage('assets/images/image8.jpg'),
                   fit: BoxFit
                       .cover, // Optional: to make the image cover the entire container
                 ),
