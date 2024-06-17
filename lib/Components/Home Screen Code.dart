@@ -2,16 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:provider/provider.dart';
-
 import '../Providers/Audio_Player_Provider.dart';
 import '../Providers/theme_provider.dart';
-
 import '../Screens/PlayScreen.dart';
 import '../model/Image_List.dart';
-import '../model/Main_List.dart';
-import '../model/Music_List.dart';
 import 'SliverAppBarForGeading.dart';
 import 'SliverAppBarForSearch.dart';
 import 'carousal_Column.dart';
