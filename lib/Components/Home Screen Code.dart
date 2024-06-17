@@ -100,8 +100,8 @@ class HomeScreenCode extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => AudioPlayerScreen(
-                                  songPath: musicList[index],
-                                  songTitle: 'Song ${index + 1}',
+                                  // songPath: musicList[index],
+                                  // songTitle: 'Song ${index + 1}',
                                   songList: musicList, initialIndex: index,
                                 ),
                               ),
