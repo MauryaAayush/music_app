@@ -153,8 +153,7 @@ class MusicProvider extends ChangeNotifier {
       String link, String imageUrl, String title) async {
     try {
       await assetsAudioPlayer.open(
-        Audio.network(
-          link,
+        Audio.network(  link,
           metas: Metas(
             title: title,
             image: MetasImage.network(imageUrl),
@@ -200,14 +199,18 @@ class MusicProvider extends ChangeNotifier {
   void openSong(List songList, int index) {
     currentIndex = index;
     assetsAudioPlayer.open(
-      Audio(songList[currentIndex]['music']),
+      Audio(
+        songList[currentIndex]['music'],
+        metas: Metas(
+          title: songList[currentIndex]['title'],
+          artist: songList[currentIndex]['artist'],
+          album: songList[currentIndex]['album'],
+          image: MetasImage.network(songList[currentIndex]['image']), // Add image here
+        ),
+      ),
       autoStart: true,
       showNotification: true,
     );
-
-
-
-
 
 
 
