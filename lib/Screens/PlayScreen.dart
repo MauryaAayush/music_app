@@ -44,7 +44,7 @@ class AudioPlayerScreen extends StatelessWidget {
         ),
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
