@@ -7,7 +7,7 @@ class AudioPlayerScreen extends StatelessWidget {
   final List songList;
   final int initialIndex;
 
-  AudioPlayerScreen({
+  const AudioPlayerScreen({super.key,
     required this.songList,
     required this.initialIndex,
   });
