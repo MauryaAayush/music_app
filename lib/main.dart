@@ -1,12 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:music_app/Providers/Audio_Player_Provider.dart';
 import 'package:music_app/Providers/page_provider.dart';
 import 'package:music_app/Providers/theme_provider.dart';
-import 'package:music_app/Screens/PlayScreen.dart';
-import 'package:music_app/Screens/SearchScreen.dart';
-import 'package:music_app/model/Music_List.dart';
 import 'package:provider/provider.dart';
 import 'Screens/Main_Screen.dart';
 
