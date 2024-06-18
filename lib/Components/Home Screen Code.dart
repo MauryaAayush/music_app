@@ -187,14 +187,9 @@ class HomeScreenCode extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                            image: AssetImage('assets/trending.jpg'), // Replace 'your_image.jpg' with your image path
-                            fit: BoxFit.cover, // Adjust the fit as needed
-                          ),
+                          image: DecorationImage(image: AssetImage(Trending[index]),fit: BoxFit.cover),
                         ),
-                        child: Center(
-                          child: Text('Favorite Songs'),
-                        ),
+
                       ),
                     ),
                   ),
@@ -233,13 +228,7 @@ class HomeScreenCode extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                            image: AssetImage(''), // Replace 'your_image.jpg' with your image path
-                            fit: BoxFit.cover, // Adjust the fit as needed
-                          ),
-                        ),
-                        child: Center(
-                          child: Text('Favorite Songs'),
+                          image: DecorationImage(image: AssetImage(Trending[index]),fit: BoxFit.cover),
                         ),
                       ),
 
