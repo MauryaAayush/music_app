@@ -398,10 +398,9 @@ class HomeScreenCode extends StatelessWidget {
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
+                            image: DecorationImage(image: NetworkImage(Devotional[index]),fit: BoxFit.cover),
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(20)),
-                        // Replace with your playlist widget
-                        child: Center(child: Text('Favorite Songs')),
                       ),
                     ),
                   ),
