@@ -32,3 +32,20 @@ List Trending =  [
   'assets/images/image17.jpg',
   'assets/trend.jpg'
 ];
+
+List Top =  [
+  'assets/arijit.jpeg',
+  'assets/images/image17.jpg',
+  'assets/images/image3.jpg',
+  'assets/subh.jpeg',
+  'assets/jubin.jpeg',
+];
+
+List New = [
+  'assets/images/image16.jpg',
+  'assets/jubin.jpeg',
+  'assets/images/image15.jpg',
+  'assets/subh.jpeg',
+  'assets/images/image17.jpg',
+];
+

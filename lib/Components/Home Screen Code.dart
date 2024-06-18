@@ -228,7 +228,7 @@ class HomeScreenCode extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(image: AssetImage(Trending[index]),fit: BoxFit.cover),
+                          image: DecorationImage(image: AssetImage(Top[index]),fit: BoxFit.cover),
                         ),
                       ),
 
@@ -267,10 +267,10 @@ class HomeScreenCode extends StatelessWidget {
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage(New[index]),fit: BoxFit.cover),
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(20)),
                         // Replace with your playlist widget
-                        child: Center(child: Text('Favorite Songs')),
                       ),
                     ),
                   ),
@@ -394,40 +394,6 @@ class HomeScreenCode extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Recent Songs',
-                        style: GoogleFonts.roboto(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.tealAccent,
-                        ),
-                      ),
-                      Icon(Icons.chevron_right),
-                    ],
-                  ),
-                ),
-                CarouselSlider(
-                    items: const [
-                      Carousal_Column(),
-                      Carousal_Column(),
-                      Carousal_Column(),
-                      Carousal_Column(),
-                    ],
-                    options: CarouselOptions(
-                      height: 340,
-                      padEnds: false,
-                      viewportFraction: 0.85,
-                      // Adjust this value for visibility from the right
-                      enableInfiniteScroll: false,
-                      autoPlay: false,
-                    )),
               ],
             ),
           ),
