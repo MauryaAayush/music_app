@@ -234,7 +234,7 @@ class HomeScreenCode extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: AssetImage('assets/trend.jpg'), // Replace 'your_image.jpg' with your image path
+                            image: AssetImage(''), // Replace 'your_image.jpg' with your image path
                             fit: BoxFit.cover, // Adjust the fit as needed
                           ),
                         ),
@@ -318,11 +318,11 @@ class HomeScreenCode extends StatelessWidget {
                       child: Container(
                         width: 170,
                         decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage(radio[index]),fit: BoxFit.cover),
                           shape: BoxShape.circle,
                           color: Colors.blue,
                         ),
-                        // Replace with your playlist widget
-                        child: Center(child: Text('Favorite Songs')),
+
                       ),
                     ),
                   ),

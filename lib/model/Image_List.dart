@@ -16,3 +16,19 @@ List Devotional = [
   "https://c.saavncdn.com/826/Nagri-Ho-Ayodhya-Si-Hindi-2022-20220119131454-500x500.jpg"
 
 ];
+
+List radio = [
+  'assets/Radio/radio1.png',
+  'assets/Radio/radio2.png',
+  'assets/Radio/radio3.png',
+  'assets/Radio/radio4.png',
+  'assets/Radio/radio5.jpeg',
+];
+
+List Trending =  [
+  'assets/images/image3.jpg',
+  'assets/images/image15.jpg',
+  'assets/images/image16.jpg',
+  'assets/images/image17.jpg',
+  'assets/trend.jpg'
+];
