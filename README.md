@@ -62,6 +62,22 @@ The project follows a structured approach with separate directories for various 
 </div>
 
 
+### 
+<h3 align="center"><i>Images  (Light Theme)</i></h3>
+
+###
+
+<div align="center">
+<img src="https://github.com/MauryaAayush/music_app/assets/143180849/f7a7b486-8be5-49c7-bd3c-07be6c1df66c" height=500px hspace=20>
+<img src="https://github.com/MauryaAayush/music_app/assets/143180849/97de7eaf-f3b6-4d73-a84b-ec1e9531bb8d" height=500px hspace=20>
+<img src="https://github.com/MauryaAayush/music_app/assets/143180849/93bfff85-c06b-4884-9894-089ae7e3dc2f" height=500px hspace=20>
+<img src="https://github.com/MauryaAayush/music_app/assets/143180849/a2fcb436-e544-4a8a-8295-9852e44a6370" height=500px hspace=20>
+<img src="https://github.com/MauryaAayush/music_app/assets/143180849/a5424ed4-f32a-4263-95da-201369d1c83c" height=500px hspace=20>
+
+
+</div>
+
+
 ###
 <h3 align="center"><i>Video</i></h3>
 <div align="center">  
