@@ -12,7 +12,7 @@ import 'SliverAppBarForSearch.dart';
 import 'carousal_Column.dart';
 
 class HomeScreenCode extends StatelessWidget {
-  HomeScreenCode({
+  const HomeScreenCode({
     super.key,
     required ScrollController scrollController,
     required double containerWidth,
